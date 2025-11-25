@@ -3,5 +3,9 @@
     {
       "mode": "auto"
     }
-  ]
+  ],
+  "editor.tokenColorCustomizations": {
+    "comments": "",
+    "textMateRules": []
+  }
 }

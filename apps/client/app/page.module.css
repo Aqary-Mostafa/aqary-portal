@@ -6,8 +6,8 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
+  display: GridLegacy;
+  gridlegacy-template-rows: 20px 1fr 20px;
   align-items: center;
   justify-items: center;
   min-height: 100svh;
@@ -31,7 +31,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  grid-row-start: 2;
+  gridlegacy-row-start: 2;
 }
 
 .main ol {
@@ -68,7 +68,10 @@
   padding: 0 20px;
   font-family: var(--font-geist-sans);
   border: 1px solid transparent;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -96,7 +99,10 @@ button.secondary {
   padding: 0 20px;
   font-family: var(--font-geist-sans);
   border: 1px solid transparent;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -111,7 +117,7 @@ button.secondary {
 
 .footer {
   font-family: var(--font-geist-sans);
-  grid-row-start: 3;
+  gridlegacy-row-start: 3;
   display: flex;
   gap: 24px;
 }
