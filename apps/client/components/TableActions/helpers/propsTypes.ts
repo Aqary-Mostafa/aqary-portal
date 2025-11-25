@@ -9,6 +9,7 @@ export type ActionConfig = {
   disabled?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   iconProps?: { [key: string]: any };
+  sxColor?: string;
 };
 
 export type PrimaryActions = {

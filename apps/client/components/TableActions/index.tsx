@@ -55,7 +55,9 @@ const TableActions = ({ actions }: TableActionsProps) => {
                 <IconButton
                   className="primary-btn"
                   color={primaryVariant?.color as IconButtonOwnProps["color"]}
-                  sx={{ color: primaryVariant?.sxColor }}
+                  sx={{
+                    color: primaryBtnAction?.sxColor || primaryVariant?.sxColor,
+                  }}
                   onClick={primaryBtnAction?.action}
                   disabled={primaryBtnAction?.disabled ?? false}
                 >
