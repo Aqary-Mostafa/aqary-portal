@@ -1,9 +1,9 @@
-import type { JSX } from "react";
+import type { JSX } from 'react';
 
-import LagelLicensesContainer from "@/modules/legal/licenses";
+import LagelLicensesContainer from '@/modules/legal/licenses';
 
-import { SeacrhParams } from "@/constants/searchParams";
-import { getLicenses } from "@/modules/legal/api/legal";
+import { SeacrhParams } from '@/constants/searchParams';
+import { getLicenses } from '@/modules/legal/api/legal';
 
 const loadDataFromApi = async (_page: string, _pageSize: string) => {
   const data = await getLicenses({ pageNo: _page, pageSize: _pageSize });
@@ -28,8 +28,8 @@ const Licenses = async (props: {
   }>;
 }): Promise<JSX.Element> => {
   const searchParams = await props.searchParams;
-  const _page = searchParams[SeacrhParams.page] || "1";
-  const _pageSize = searchParams[SeacrhParams.pageSize] || "5";
+  const _page = searchParams[SeacrhParams.page] || '1';
+  const _pageSize = searchParams[SeacrhParams.pageSize] || '5';
 
   const { getLicenses } = await loadDataFromApi(_page, _pageSize);
 

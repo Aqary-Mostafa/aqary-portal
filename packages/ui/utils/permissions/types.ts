@@ -1,4 +1,4 @@
-import { UserTypes } from "../dal";
+import { UserTypes } from '../dal';
 
 export type UserDataTypes = {
   isSuperAdmin: boolean;

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { Box, Breadcrumbs, Typography } from "@mui/material";
-import Link from "next/link";
+import { Box, Breadcrumbs, Typography } from '@mui/material';
+import Link from 'next/link';
 
-import "./styles.scss";
+import './styles.scss';
 
 export interface PageHeaderProps {
   breadcrumbs?: ({ label: string; link: string } | undefined)[];
@@ -12,9 +12,9 @@ export interface PageHeaderProps {
 
 const PageHeader = ({ pageHeader, breadcrumbs }: PageHeaderProps) => {
   return (
-    <Box className="crm-page-header">
-      <Box className="page">
-        <Breadcrumbs aria-label="breadcrumb" className="breadcrumb">
+    <Box className='crm-page-header'>
+      <Box className='page'>
+        <Breadcrumbs aria-label='breadcrumb' className='breadcrumb'>
           {breadcrumbs &&
             breadcrumbs.map((x, idx) => {
               const isLast = breadcrumbs?.length - 1 === idx;
@@ -25,7 +25,7 @@ const PageHeader = ({ pageHeader, breadcrumbs }: PageHeaderProps) => {
 
               return (
                 x && (
-                  <Link color="inherit" href={x?.link} key={idx}>
+                  <Link color='inherit' href={x?.link} key={idx}>
                     {x?.label}
                   </Link>
                 )
@@ -33,7 +33,7 @@ const PageHeader = ({ pageHeader, breadcrumbs }: PageHeaderProps) => {
             })}
         </Breadcrumbs>
         {pageHeader && (
-          <Typography component="h3" className="header">
+          <Typography component='h3' className='header'>
             {pageHeader}
           </Typography>
         )}

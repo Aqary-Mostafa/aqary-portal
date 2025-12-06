@@ -1,13 +1,13 @@
-import { UserTypeID } from "@/constants";
-import { getUserData } from "@/api/user";
-import { permissionsActions } from "./helper/actions";
-import { PermissionsForType } from "./helper/enums";
-import { UserDataTypes } from "./types";
+import { UserTypeID } from '@/constants';
+import { getUserData } from '@/api/user';
+import { permissionsActions } from './helper/actions';
+import { PermissionsForType } from './helper/enums';
+import { UserDataTypes } from './types';
 
 //! xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //! xxxxxxxxx====> to see all sections only <====xxxxxxxxxxxxxxxxxxxxxxxxx
 //! xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-const _superAdmin = process?.env?.NEXT_PUBLIC_SUPER_ADMIN === "true"; //!x
+const _superAdmin = process?.env?.NEXT_PUBLIC_SUPER_ADMIN === 'true'; //!x
 //! xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //! xxxxxxxxxxxxxx====> Dangrous area <====xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //! xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -18,7 +18,7 @@ const pageAllowed = async ({ page }: { page?: number }) => {
   if (_superAdmin) return true;
 
   const authTabs = await getUserData();
-  if (!authTabs?.data && authTabs?.Message !== "success") return [];
+  if (!authTabs?.data && authTabs?.Message !== 'success') return [];
 
   // const idList = testPermetionsAsIds;
   const idList = authTabs?.data?.all_permissions;

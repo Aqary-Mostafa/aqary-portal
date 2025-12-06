@@ -5,22 +5,22 @@ import {
   Popover,
   Tooltip,
   Typography,
-} from "@mui/material";
-import Link from "next/link";
-import { useTranslations } from "next-intl";
-import React from "react";
-import { BsThreeDots } from "react-icons/bs";
+} from '@mui/material';
+import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import React from 'react';
+import { BsThreeDots } from 'react-icons/bs';
 
-import "./table-actions.styles.scss";
+import './table-actions.styles.scss';
 
 import {
   primaryVariants,
   SecondaryVariants,
-} from "@/components/TableActions/helpers/buttonsData";
+} from '@/components/TableActions/helpers/buttonsData';
 import {
   PrimaryActions,
   SecondaryActions,
-} from "@/components/TableActions/helpers/propsTypes";
+} from '@/components/TableActions/helpers/propsTypes';
 
 type TableActionsProps = {
   actions: {
@@ -30,17 +30,17 @@ type TableActionsProps = {
 };
 
 const TableActions = ({ actions }: TableActionsProps) => {
-  const t = useTranslations("table");
+  const t = useTranslations('table');
   const [moreActionsAnchorEl, setMoreActionsAnchorEl] =
     React.useState<HTMLButtonElement | null>(null);
   const openMoreActions = Boolean(moreActionsAnchorEl);
-  const moreActionsId = openMoreActions ? "actions-popover" : undefined;
+  const moreActionsId = openMoreActions ? 'actions-popover' : undefined;
 
   const primaryKeys = Object.keys(primaryVariants);
   const secondaryKeys = Object.keys(SecondaryVariants);
 
   return (
-    <Box className="table-actions">
+    <Box className='table-actions'>
       {/* Render primary actions */}
       {primaryKeys?.map((x) => {
         const primaryVariant =
@@ -51,10 +51,10 @@ const TableActions = ({ actions }: TableActionsProps) => {
         if (primaryBtnAction)
           return (
             <Tooltip key={x} title={t(primaryVariant?.label)}>
-              <Typography component="span">
+              <Typography component='span'>
                 <IconButton
-                  className="primary-btn"
-                  color={primaryVariant?.color as IconButtonOwnProps["color"]}
+                  className='primary-btn'
+                  color={primaryVariant?.color as IconButtonOwnProps['color']}
                   sx={{
                     color: primaryBtnAction?.sxColor || primaryVariant?.sxColor,
                   }}
@@ -63,9 +63,9 @@ const TableActions = ({ actions }: TableActionsProps) => {
                 >
                   {primaryBtnAction?.link && (
                     <Link
-                      className="active-link"
+                      className='active-link'
                       href={primaryBtnAction?.link}
-                      target={primaryBtnAction?.target || "_self"}
+                      target={primaryBtnAction?.target || '_self'}
                     />
                   )}
                   {/* {primaryVariant?.icon} */}
@@ -82,9 +82,9 @@ const TableActions = ({ actions }: TableActionsProps) => {
       {/* Render secondary actions */}
       {actions?.secondary && (
         <IconButton
-          className="secondary-actions-btn"
+          className='secondary-actions-btn'
           onClick={(e) => setMoreActionsAnchorEl(e.currentTarget)}
-          data-testid="secondary-actions"
+          data-testid='secondary-actions'
         >
           <BsThreeDots />
         </IconButton>
@@ -95,12 +95,12 @@ const TableActions = ({ actions }: TableActionsProps) => {
         anchorEl={moreActionsAnchorEl}
         onClose={() => setMoreActionsAnchorEl(null)}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "right",
+          vertical: 'bottom',
+          horizontal: 'right',
         }}
         transformOrigin={{
-          vertical: "top",
-          horizontal: "right",
+          vertical: 'top',
+          horizontal: 'right',
         }}
       >
         {secondaryKeys?.map((x) => {
@@ -112,14 +112,14 @@ const TableActions = ({ actions }: TableActionsProps) => {
           if (secondaryBtnAction)
             return (
               <Box
-                className="secondary-btn"
+                className='secondary-btn'
                 key={x}
                 onClick={secondaryBtnAction?.action}
               >
                 {secondaryBtnAction?.link && (
                   <Link
                     href={secondaryBtnAction?.link}
-                    target={secondaryBtnAction?.target || "_self"}
+                    target={secondaryBtnAction?.target || '_self'}
                   />
                 )}
                 {primaryVariant?.icon}

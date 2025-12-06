@@ -4,12 +4,12 @@
 //   url: 'https://dashboard.aqaryint.com/',
 // };
 
-import { INITIAL_LIST } from "./crm-drawer";
-import { SHOW_CONSOLE_LOG } from "./env";
+import { INITIAL_LIST } from './crm-drawer';
+import { SHOW_CONSOLE_LOG } from './env';
 
 export enum DashboardTypeEnums {
-  crm = "crm",
-  portal = "dashboard",
+  crm = 'crm',
+  portal = 'dashboard',
 }
 
 export interface ConfigTypes {
@@ -30,28 +30,28 @@ export const HIDE_DEBUG_ARY = [
 
 export const CONFIGS: { [key in DashboardTypeEnums]: ConfigTypes } = {
   [DashboardTypeEnums.portal]: {
-    title: "Aqary International Group Portal",
-    description: "Manage your realestate from here",
-    url: "https://dashboard.aqaryint.com/",
+    title: 'Aqary International Group Portal',
+    description: 'Manage your realestate from here',
+    url: 'https://dashboard.aqaryint.com/',
     drawer: [...INITIAL_LIST],
     // drawer: INITIAL_LIST,
     // drawer: PORTAL_LIST,
-    logo: "/logo.png",
-    logo_ar: "/logo-ar.png",
-    logo_white: "/logo-ar-white.png",
-    logo_white_ar: "/logo-ar-white.png",
-    letter_logo: "/a-logo.png",
+    logo: '/logo.png',
+    logo_ar: '/logo-ar.png',
+    logo_white: '/logo-ar-white.png',
+    logo_white_ar: '/logo-ar-white.png',
+    letter_logo: '/a-logo.png',
   },
   [DashboardTypeEnums.crm]: {
-    title: "Aqary International Group Crm",
-    description: "Manage your realestate from here",
-    url: "https://dashboard.aqaryint.com/",
+    title: 'Aqary International Group Crm',
+    description: 'Manage your realestate from here',
+    url: 'https://dashboard.aqaryint.com/',
     drawer: INITIAL_LIST,
-    logo: "/logo.png",
-    logo_ar: "/logo-ar.png",
-    logo_white: "/logo-ar-white.png",
-    logo_white_ar: "/logo-ar-white.png",
-    letter_logo: "/a-logo.png",
+    logo: '/logo.png',
+    logo_ar: '/logo-ar.png',
+    logo_white: '/logo-ar-white.png',
+    logo_white_ar: '/logo-ar-white.png',
+    letter_logo: '/a-logo.png',
   },
 };
 
@@ -67,9 +67,9 @@ export const SITE_CONFIG =
   ];
 
 export function V2_DEMO() {
-  "use client";
+  'use client';
   const switchValue =
-    (localStorage.getItem("switchToV2") || "false") === "true";
+    (localStorage.getItem('switchToV2') || 'false') === 'true';
 
   return SHOW_CONSOLE_LOG && switchValue;
 }

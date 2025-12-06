@@ -1,8 +1,8 @@
-"use client";
-import { Box } from "@mui/material";
-import { useRef, useState } from "react";
-import { IoCheckmarkDoneCircle } from "react-icons/io5";
-import { MdContentCopy } from "react-icons/md";
+'use client';
+import { Box } from '@mui/material';
+import { useRef, useState } from 'react';
+import { IoCheckmarkDoneCircle } from 'react-icons/io5';
+import { MdContentCopy } from 'react-icons/md';
 
 const CellWithCopy = ({
   url,
@@ -17,17 +17,17 @@ const CellWithCopy = ({
   const copyToClipboard = (text: string) => {
     if (
       navigator.clipboard &&
-      typeof navigator.clipboard.writeText === "function"
+      typeof navigator.clipboard.writeText === 'function'
     ) {
       return navigator.clipboard.writeText(text);
     } else {
       // Fallback for unsupported environments
-      const textArea = document.createElement("textarea");
+      const textArea = document.createElement('textarea');
       textArea.value = text;
       document.body.appendChild(textArea);
       textArea.select();
       try {
-        document.execCommand("copy");
+        document.execCommand('copy');
       } finally {
         document.body.removeChild(textArea);
       }
@@ -51,19 +51,19 @@ const CellWithCopy = ({
 
   return (
     <Box
-      sx={{ display: "flex", alignItems: "center", gap: "8px" }}
-      className="Cell-With-Copy"
+      sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+      className='Cell-With-Copy'
     >
       {!hideText && (
-        <Box component="span" sx={{ width: "auto" }}>
-          {url?.length > 50 ? url.substring(0, 50).concat("...") : url}
+        <Box component='span' sx={{ width: 'auto' }}>
+          {url?.length > 50 ? url.substring(0, 50).concat('...') : url}
         </Box>
       )}
       {isCopied ? (
         <IoCheckmarkDoneCircle />
       ) : (
         <MdContentCopy
-          style={{ cursor: "pointer", width: "20px" }}
+          style={{ cursor: 'pointer', width: '20px' }}
           onClick={handleHold}
         />
       )}

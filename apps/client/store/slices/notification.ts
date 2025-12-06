@@ -1,6 +1,6 @@
-"use client";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { GetNotificationRow } from "@/types/notification";
+'use client';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { GetNotificationRow } from '@/types/notification';
 
 export interface NotificationState {
   isNew?: boolean;
@@ -17,27 +17,27 @@ const initialState: NotificationState = {
 };
 
 const notificationSlice = createSlice({
-  name: "notification",
+  name: 'notification',
   initialState,
   reducers: {
-    setIsNew: (state, action: PayloadAction<NotificationState["isNew"]>) => {
+    setIsNew: (state, action: PayloadAction<NotificationState['isNew']>) => {
       state.isNew = action.payload;
     },
     closeConnection: (
       state,
-      action: PayloadAction<NotificationState["closeConnection"]>
+      action: PayloadAction<NotificationState['closeConnection']>,
     ) => {
       state.closeConnection = action.payload;
     },
     setNoticications: (
       state,
-      action: PayloadAction<NotificationState["notfications"]>
+      action: PayloadAction<NotificationState['notfications']>,
     ) => {
       state.notfications = action.payload;
     },
     setCount: (
       state,
-      action: PayloadAction<NotificationState["notficationsCount"]>
+      action: PayloadAction<NotificationState['notficationsCount']>,
     ) => {
       state.notficationsCount = action.payload;
     },

@@ -35,7 +35,7 @@ export interface MRTOptionsProps<TData extends MRT_RowData> {
 }
 
 export const useDefaultMRTOptions = <TData extends MRT_RowData>(
-  props: MRTOptionsProps<TData>
+  props: MRTOptionsProps<TData>,
 ): Partial<MRT_TableOptions<TData>> => {
   const { theme } = useSelector((state: RootState) => state.user);
   const [pagination, setPagination] = useState({
@@ -50,7 +50,7 @@ export const useDefaultMRTOptions = <TData extends MRT_RowData>(
   const router = useRouter();
   const urlParams = useMemo(
     () => new URLSearchParams(searchParams),
-    [searchParams]
+    [searchParams],
   );
   const { locale } = useParams();
   const t = useTranslations('table');

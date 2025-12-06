@@ -1,9 +1,9 @@
-"use server";
-import { UserTypes } from "@/utils/dal";
+'use server';
+import { UserTypes } from '@/utils/dal';
 
-import { getApiResponse } from "@/utils/get-api-response";
+import { getApiResponse } from '@/utils/get-api-response';
 
-import { ConstantsTypes } from "@/types/shared";
+import { ConstantsTypes } from '@/types/shared';
 
 const getUserData = async () => {
   return await getApiResponse<{
@@ -24,7 +24,7 @@ const changeUserCompany = ({ formData }: { formData: FormData }) =>
   }>({
     apiEndpoint: `${process.env.NEXT_PUBLIC_API_URL}/user/updateActiveCompany`,
     requestData: formData,
-    method: "PUT",
+    method: 'PUT',
   });
 
 const getallDashBoardUsertype = () =>

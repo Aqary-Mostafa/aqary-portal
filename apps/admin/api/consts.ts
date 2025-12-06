@@ -1,7 +1,7 @@
-import { getApiResponse } from "@/utils/get-api-response";
+import { getApiResponse } from '@/utils/get-api-response';
 
-import { BannerPackageType } from "@/types/global";
-import { OathConstants } from "@/types/global";
+import { BannerPackageType } from '@/types/global';
+import { OathConstants } from '@/types/global';
 import {
   ConstantsTypes,
   ConstantsV0Types,
@@ -10,7 +10,7 @@ import {
   LanguageType,
   PeriodsTypes,
   SectionsTypes,
-} from "@/types/shared";
+} from '@/types/shared';
 
 const getLifeStyle = () =>
   getApiResponse<{
@@ -442,7 +442,7 @@ const createNewsLetterSubscribers = ({ formData }: { formData: FormData }) =>
     error?: string;
   }>({
     apiEndpoint: `${process.env.NEXT_PUBLIC_API_URL}/website/createNewsLetterSubscribers`,
-    method: "POST",
+    method: 'POST',
     requestData: formData,
   });
 

@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
-import createIntlMiddleware from "next-intl/middleware";
+import { NextRequest, NextResponse } from 'next/server';
+import createIntlMiddleware from 'next-intl/middleware';
 
-import { routing } from "./i18n/routing";
+import { routing } from './i18n/routing';
 
 const intlMiddleware = createIntlMiddleware(routing);
 
@@ -11,17 +11,17 @@ export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const locale = request.nextUrl.locale || routing?.defaultLocale;
 
-  const isAuthenticated = !!request.cookies.get("aqaryUser");
+  const isAuthenticated = !!request.cookies.get('aqaryUser');
   const isDashboardRoute = pathname.startsWith(`/${locale}/dashboard`);
   const isAuthRoute = pathname === `/${locale}/login`;
 
-  if (pathname === "/") {
+  if (pathname === '/') {
     return NextResponse.redirect(new URL(`/${locale}`, request.url));
   }
 
   if (isDashboardRoute && !isAuthenticated) {
     const url = request.nextUrl.clone();
-    url.searchParams.set("next", url.pathname);
+    url.searchParams.set('next', url.pathname);
     url.pathname = `/${locale}/login`;
     return NextResponse.redirect(url);
   }
@@ -37,9 +37,9 @@ export default function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/",
-    "/((?!api|_next/static|favicon.ico|[\\w-]+\\.[\\w]+|images(?:/.*)?).*)",
-    "/:locale(en|ar)/dashboard/:path*",
-    "/:locale(en|ar)/login",
+    '/',
+    '/((?!api|_next/static|favicon.ico|[\\w-]+\\.[\\w]+|images(?:/.*)?).*)',
+    '/:locale(en|ar)/dashboard/:path*',
+    '/:locale(en|ar)/login',
   ],
 };

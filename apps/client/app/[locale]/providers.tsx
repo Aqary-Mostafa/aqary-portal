@@ -1,7 +1,7 @@
-"use client";
-import MuiProvider from "@/providers/muiProvider";
-import store from "@/store";
-import { Provider } from "react-redux";
+'use client';
+import MuiProvider from '@/providers/muiProvider';
+import store from '@/store';
+import { Provider } from 'react-redux';
 
 export default function Providers({
   children,

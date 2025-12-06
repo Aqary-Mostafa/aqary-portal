@@ -1,30 +1,30 @@
-"use client";
-import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+'use client';
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { verifySession } from "@/utils/dal";
+import { verifySession } from '@/utils/dal';
 
-import { AlertBar, AlertBarProps } from "../AlertBar";
+import { AlertBar, AlertBarProps } from '../AlertBar';
 
-import { RootState } from "@/store";
+import { RootState } from '@/store';
 import {
   setCount,
   setIsNew,
   setNoticications,
-} from "@/store/slices/notification";
+} from '@/store/slices/notification';
 
-import { getNotifications } from "@/api/notifications";
-import { consoleLog } from "@/utils/console-log";
+import { getNotifications } from '@/api/notifications';
+import { consoleLog } from '@/utils/console-log';
 
 const Notifications = () => {
   const [alertBarProps, setAlertBarProps] = useState<AlertBarProps>({
-    message: "",
-    severity: "info",
+    message: '',
+    severity: 'info',
   });
   const eventSourceRef = useRef<EventSource | null>(null);
   const { closeConnection } = useSelector(
-    (state: RootState) => state.notification
+    (state: RootState) => state.notification,
   );
   const dispatch = useDispatch();
 
@@ -38,7 +38,7 @@ const Notifications = () => {
           process.env.NEXT_PUBLIC_NOTIFIY_API_URL
         }/notifications/push?channel=dashboard&auth_token=Bearer ${
           session?.aqaryUser?.token
-        }`
+        }`,
       );
 
       see.onmessage = (event) => {
@@ -54,7 +54,7 @@ const Notifications = () => {
       };
 
       see.onerror = (err) => {
-        consoleLog("SSE error:", err);
+        consoleLog('SSE error:', err);
         see.close();
       };
 
@@ -73,7 +73,7 @@ const Notifications = () => {
   return (
     <>
       <AlertBar
-        onClose={() => setAlertBarProps({ message: "" })}
+        onClose={() => setAlertBarProps({ message: '' })}
         {...alertBarProps}
       />
     </>

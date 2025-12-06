@@ -1,39 +1,39 @@
-import { TableActionsPrimary, TableActionsSecondary } from "@/types/shared";
-import { Switch } from "@mui/material";
-import { grey } from "@mui/material/colors";
-import { AiOutlineGlobal } from "react-icons/ai";
-import { BiLike, BiSolidBookContent, BiUser } from "react-icons/bi";
-import { BsBuildings, BsEye, BsPerson } from "react-icons/bs";
-import { CgExtensionAdd, CgNotes } from "react-icons/cg";
-import { CiMobile4, CiRedo, CiSaveUp1, CiStar, CiTimer } from "react-icons/ci";
+import { TableActionsPrimary, TableActionsSecondary } from '@/types/shared';
+import { Switch } from '@mui/material';
+import { grey } from '@mui/material/colors';
+import { AiOutlineGlobal } from 'react-icons/ai';
+import { BiLike, BiSolidBookContent, BiUser } from 'react-icons/bi';
+import { BsBuildings, BsEye, BsPerson } from 'react-icons/bs';
+import { CgExtensionAdd, CgNotes } from 'react-icons/cg';
+import { CiMobile4, CiRedo, CiSaveUp1, CiStar, CiTimer } from 'react-icons/ci';
 import {
   FaClipboardList,
   FaRegAddressCard,
   FaRegBuilding,
   FaRegFolder,
   FaRegStar,
-} from "react-icons/fa";
-import { FaListOl, FaRegCircleUser } from "react-icons/fa6";
-import { FiUser } from "react-icons/fi";
-import { GoUnlock } from "react-icons/go";
-import { GrFormView } from "react-icons/gr";
-import { HiOutlineCreditCard, HiOutlineRefresh } from "react-icons/hi";
-import { HiOutlineChartPie } from "react-icons/hi";
-import { ImAttachment } from "react-icons/im";
-import { IoIosGitNetwork } from "react-icons/io";
+} from 'react-icons/fa';
+import { FaListOl, FaRegCircleUser } from 'react-icons/fa6';
+import { FiUser } from 'react-icons/fi';
+import { GoUnlock } from 'react-icons/go';
+import { GrFormView } from 'react-icons/gr';
+import { HiOutlineCreditCard, HiOutlineRefresh } from 'react-icons/hi';
+import { HiOutlineChartPie } from 'react-icons/hi';
+import { ImAttachment } from 'react-icons/im';
+import { IoIosGitNetwork } from 'react-icons/io';
 import {
   IoCallOutline,
   IoCopyOutline,
   IoDocumentTextOutline,
-} from "react-icons/io5";
+} from 'react-icons/io5';
 import {
   LiaFileInvoiceDollarSolid,
   LiaHandHoldingUsdSolid,
   LiaHandshake,
   LiaUserFriendsSolid,
-} from "react-icons/lia";
-import { LuUser, LuUsers } from "react-icons/lu";
-import { LuClipboardList } from "react-icons/lu";
+} from 'react-icons/lia';
+import { LuUser, LuUsers } from 'react-icons/lu';
+import { LuClipboardList } from 'react-icons/lu';
 import {
   MdCancelPresentation,
   MdContentCopy,
@@ -51,15 +51,15 @@ import {
   MdOutlineRemoveRedEye,
   MdOutlineStarRate,
   MdWebAsset,
-} from "react-icons/md";
-import { PiBuildingsLight } from "react-icons/pi";
+} from 'react-icons/md';
+import { PiBuildingsLight } from 'react-icons/pi';
 import {
   RiDeleteBin5Line,
   RiHome3Line,
   RiMoneyDollarBoxLine,
   RiNodeTree,
   RiShareLine,
-} from "react-icons/ri";
+} from 'react-icons/ri';
 import {
   TbBrowser,
   TbBuildingEstate,
@@ -87,613 +87,613 @@ import {
   TbTagOff,
   TbTags,
   TbTimelineEventText,
-} from "react-icons/tb";
-import { TiCreditCard, TiDocumentText } from "react-icons/ti";
-import { VscTypeHierarchySub } from "react-icons/vsc";
-import { WiTime8 } from "react-icons/wi";
+} from 'react-icons/tb';
+import { TiCreditCard, TiDocumentText } from 'react-icons/ti';
+import { VscTypeHierarchySub } from 'react-icons/vsc';
+import { WiTime8 } from 'react-icons/wi';
 
 export const primaryVariants = {
   [TableActionsPrimary.view]: {
     icon: <MdOutlineRemoveRedEye />,
     color: undefined,
-    sxColor: grey["600"],
-    label: "View",
+    sxColor: grey['600'],
+    label: 'View',
   },
   [TableActionsPrimary.edit]: {
     icon: <TbEdit />,
-    color: "info",
+    color: 'info',
     sxColor: undefined,
-    label: "Edit",
+    label: 'Edit',
   },
   [TableActionsPrimary.share]: {
     icon: <RiShareLine />,
-    color: "success",
+    color: 'success',
     sxColor: undefined,
-    label: "Share",
+    label: 'Share',
   },
   [TableActionsPrimary.publish]: {
     icon: <TbSend />,
-    color: "warning",
+    color: 'warning',
     sxColor: undefined,
-    label: "Publish",
+    label: 'Publish',
   },
   [TableActionsPrimary.unshare]: {
     icon: <TbShareOff />,
-    color: "success",
+    color: 'success',
     sxColor: undefined,
-    label: "Un Share",
+    label: 'Un Share',
   },
   [TableActionsPrimary.unpublish]: {
     icon: <TbSendOff />,
-    color: "warning",
+    color: 'warning',
     sxColor: undefined,
-    label: "Un Publish",
+    label: 'Un Publish',
   },
   [TableActionsPrimary.download]: {
     icon: <TbDownload />,
-    color: "warning",
+    color: 'warning',
     sxColor: undefined,
-    label: "Download",
+    label: 'Download',
   },
   [TableActionsPrimary.delete]: {
     icon: <RiDeleteBin5Line />,
-    color: "error",
+    color: 'error',
     sxColor: undefined,
-    label: "Delete",
+    label: 'Delete',
   },
   [TableActionsPrimary.active]: {
     icon: <Switch />,
-    color: "info",
+    color: 'info',
     sxColor: undefined,
-    label: "Active",
+    label: 'Active',
   },
 };
 
 export const SecondaryVariants = {
   [TableActionsSecondary.manageLicense]: {
     icon: <TiDocumentText />,
-    label: "Manage License",
+    label: 'Manage License',
   },
   [TableActionsSecondary.manageCertificate]: {
     icon: <TiDocumentText />,
-    label: "Manage Certificate",
+    label: 'Manage Certificate',
   },
   [TableActionsSecondary.properties]: {
     icon: <TbListNumbers />,
-    label: "Listing Properties",
+    label: 'Listing Properties',
   },
   [TableActionsSecondary.plan]: {
     icon: <RiNodeTree />,
-    label: "Manage Plan",
+    label: 'Manage Plan',
   },
   [TableActionsSecondary.promotion]: {
     icon: <MdOutlineLocalOffer />,
-    label: "Promotions",
+    label: 'Promotions',
   },
   [TableActionsSecondary.gallery]: {
     icon: <MdOutlineBook />,
-    label: "Gallery",
+    label: 'Gallery',
   },
   [TableActionsSecondary.partener]: {
     icon: <LiaHandshake />,
-    label: "Partners",
+    label: 'Partners',
   },
   [TableActionsSecondary.sponsers]: {
     icon: <RiMoneyDollarBoxLine />,
-    label: "Sponsers",
+    label: 'Sponsers',
   },
   [TableActionsSecondary.exhibitors]: {
     icon: <FiUser />,
-    label: "Exhibitors",
+    label: 'Exhibitors',
   },
   [TableActionsSecondary.booth]: {
     icon: <IoDocumentTextOutline />,
-    label: "Booth Table",
+    label: 'Booth Table',
   },
   [TableActionsSecondary.queries]: {
     icon: <FiUser />,
-    label: "Queries",
+    label: 'Queries',
   },
   [TableActionsSecondary.documents]: {
     icon: <FaRegFolder />,
-    label: "Documents",
+    label: 'Documents',
   },
   [TableActionsSecondary.mobileconfigs]: {
     icon: <CiMobile4 />,
-    label: "Mobile Configs",
+    label: 'Mobile Configs',
   },
   [TableActionsSecondary.financial]: {
     icon: <TbLocationDollar />,
-    label: "Financial Provider",
+    label: 'Financial Provider',
   },
   [TableActionsSecondary.paymentPlans]: {
     icon: <TbLocationDollar />,
-    label: "Manage Payment Plans",
+    label: 'Manage Payment Plans',
   },
   [TableActionsSecondary.rating]: {
     icon: <MdOutlineStarRate />,
-    label: "Rating",
+    label: 'Rating',
   },
   [TableActionsSecondary.unblock]: {
     icon: <GoUnlock />,
-    label: "Unblock",
+    label: 'Unblock',
   },
   [TableActionsSecondary.internalShare]: {
     icon: <BiUser />,
-    label: "Internal Share",
+    label: 'Internal Share',
   },
   [TableActionsSecondary.localShare]: {
     icon: <FaRegBuilding />,
-    label: "Local share",
+    label: 'Local share',
   },
   [TableActionsSecondary.internationalShare]: {
     icon: <AiOutlineGlobal />,
-    label: "International Share",
+    label: 'International Share',
   },
   [TableActionsSecondary.manageUnitType]: {
     icon: <RiNodeTree />,
-    label: "Manage Unit Types",
+    label: 'Manage Unit Types',
   },
   [TableActionsSecondary.manageUnit]: {
     icon: <PiBuildingsLight />,
-    label: "Units",
+    label: 'Units',
   },
   [TableActionsSecondary.restore]: {
     icon: <TbRestore />,
-    label: "Restore",
+    label: 'Restore',
   },
   [TableActionsSecondary.socialMedia]: {
     icon: <BiLike />,
-    label: "Social Media",
+    label: 'Social Media',
   },
   [TableActionsSecondary.webPortal]: {
     icon: <MdWebAsset />,
-    label: "Web Portals",
+    label: 'Web Portals',
   },
   [TableActionsSecondary.phases]: {
     icon: <BsBuildings />,
-    label: "phases",
+    label: 'phases',
   },
   [TableActionsSecondary.liveView]: {
     icon: <BsEye />,
-    label: "Live View",
+    label: 'Live View',
   },
   [TableActionsSecondary.resetPassword]: {
     icon: <TbLockCheck />,
-    label: "Reset Password",
+    label: 'Reset Password',
   },
   [TableActionsSecondary.packageAssignment]: {
     icon: <HiOutlineChartPie />,
-    label: "Package Assignment",
+    label: 'Package Assignment',
   },
   [TableActionsSecondary.setPermissions]: {
     icon: <FaRegAddressCard />,
-    label: "Set Permissions",
+    label: 'Set Permissions',
   },
 
   [TableActionsSecondary.selectTeamLead]: {
     icon: <LuUsers />,
-    label: "Select Team Lead",
+    label: 'Select Team Lead',
   },
   [TableActionsSecondary.subscriptions]: {
     icon: <LiaFileInvoiceDollarSolid />,
-    label: "Subscriptions",
+    label: 'Subscriptions',
   },
   [TableActionsSecondary.viewInvoice]: {
     icon: <MdOutlineRemoveRedEye />,
-    label: "View Invoice",
+    label: 'View Invoice',
   },
   [TableActionsSecondary.updatePayment]: {
     icon: <TbCreditCard />,
-    label: "Update Payment",
+    label: 'Update Payment',
   },
   [TableActionsSecondary.paymentDetails]: {
     icon: <HiOutlineCreditCard />,
-    label: "Payment Details",
+    label: 'Payment Details',
   },
   [TableActionsSecondary.overduePayments]: {
     icon: <TbFileDollar />,
-    label: "Over due Payments",
+    label: 'Over due Payments',
   },
   [TableActionsSecondary.viewContract]: {
     icon: <MdOutlineRemoveRedEye />,
-    label: "View Contract",
+    label: 'View Contract',
   },
   [TableActionsSecondary.downloadContract]: {
     icon: <TbDownload />,
-    label: "Download Contract",
+    label: 'Download Contract',
   },
   [TableActionsSecondary.verifyFinance]: {
     icon: <TbSquareCheck />,
-    label: "Verify Finance",
+    label: 'Verify Finance',
   },
   [TableActionsSecondary.rejectRequest]: {
     icon: <TbSquareRoundedX />,
-    label: "Reject Request",
+    label: 'Reject Request',
   },
   [TableActionsSecondary.reVerify]: {
     icon: <TbSquareCheck />,
-    label: "Re-Verify",
+    label: 'Re-Verify',
   },
   [TableActionsSecondary.approve]: {
     icon: <TbSquareCheck />,
-    label: "Approve",
+    label: 'Approve',
   },
   [TableActionsSecondary.reject]: {
     icon: <TbSquareRoundedX />,
-    label: "Reject",
+    label: 'Reject',
   },
   [TableActionsSecondary.manage]: {
     icon: <RiShareLine />,
-    label: "Manage",
+    label: 'Manage',
   },
   [TableActionsSecondary.restoreDocuments]: {
     icon: <FaRegFolder />,
-    label: "Restore Documents",
+    label: 'Restore Documents',
   },
   [TableActionsSecondary.leadership]: {
     icon: <FaListOl />,
-    label: "Leadership",
+    label: 'Leadership',
   },
   [TableActionsSecondary.subCompanies]: {
     icon: <RiNodeTree />,
-    label: "Manage Sub Companies",
+    label: 'Manage Sub Companies',
   },
   [TableActionsSecondary.viewDocuments]: {
     icon: <MdOutlineRemoveRedEye />,
-    label: "View Documents",
+    label: 'View Documents',
   },
   [TableActionsSecondary.manageSubscriptions]: {
     icon: <TbReportMoney />,
-    label: "Manage Subscriptions",
+    label: 'Manage Subscriptions',
   },
   [TableActionsSecondary.subscription]: {
     icon: <TbFileDollar />,
-    label: "Subscriptions",
+    label: 'Subscriptions',
   },
   [TableActionsSecondary.viewLive]: {
     icon: <MdOutlineRemoveRedEye />,
-    label: "View Live",
+    label: 'View Live',
   },
   [TableActionsSecondary.report]: {
     icon: <TbClipboardData />,
-    label: "Report",
+    label: 'Report',
   },
   [TableActionsSecondary.department]: {
     icon: <TbBuildingEstate />,
-    label: "Department",
+    label: 'Department',
   },
   [TableActionsSecondary.draft]: {
     icon: <LuClipboardList />,
-    label: "Draft",
+    label: 'Draft',
   },
   [TableActionsSecondary.approveQuota]: {
     icon: <HiOutlineChartPie />,
-    label: "Approve Quota",
+    label: 'Approve Quota',
   },
   [TableActionsSecondary.makePayment]: {
     icon: <TbCreditCard />,
-    label: "Make Payment",
+    label: 'Make Payment',
   },
   [TableActionsSecondary.viewCompanyProfile]: {
     icon: <MdOutlineRemoveRedEye />,
-    label: "View Company Profile",
+    label: 'View Company Profile',
   },
   [TableActionsSecondary.manageRoles]: {
     icon: <IoCopyOutline />,
-    label: "Manage Roles",
+    label: 'Manage Roles',
   },
   [TableActionsSecondary.inactive]: {
     icon: <WiTime8 />,
-    label: "Inactive",
+    label: 'Inactive',
   },
   [TableActionsSecondary.exclusive]: {
     icon: <TbSquareRoundedCheck />,
-    label: "Exclusive",
+    label: 'Exclusive',
   },
   [TableActionsSecondary.duplicate]: {
     icon: <MdContentCopy />,
-    label: "Duplicate",
+    label: 'Duplicate',
   },
   [TableActionsSecondary.accept]: {
     icon: <TbSquareRoundedCheck />,
-    label: "Accept",
+    label: 'Accept',
   },
   [TableActionsSecondary.representative]: {
     icon: <IoIosGitNetwork />,
-    label: "Representative",
+    label: 'Representative',
   },
   [TableActionsSecondary.call]: {
     icon: <IoCallOutline />,
-    label: "Call",
+    label: 'Call',
   },
   [TableActionsSecondary.reassignlead]: {
     icon: <LuUser />,
-    label: "Reassign Lead",
+    label: 'Reassign Lead',
   },
   [TableActionsSecondary.convertToContact]: {
     icon: <LiaUserFriendsSolid />,
-    label: "Convert to Contact",
+    label: 'Convert to Contact',
   },
   [TableActionsSecondary.attachements]: {
     icon: <ImAttachment />,
-    label: "Attachements",
+    label: 'Attachements',
   },
   [TableActionsSecondary.email]: {
     icon: <MdOutlineEmail />,
-    label: "Email",
+    label: 'Email',
   },
   [TableActionsSecondary.setAsJunk]: {
     icon: <RiDeleteBin5Line />,
-    label: "Set as Junk",
+    label: 'Set as Junk',
   },
   [TableActionsSecondary.notes]: {
     icon: <CgNotes />,
-    label: "Notes",
+    label: 'Notes',
   },
   [TableActionsSecondary.activities]: {
     icon: <FaRegFolder />,
-    label: "Activities",
+    label: 'Activities',
   },
   [TableActionsSecondary.composeEmail]: {
     icon: <MdOutlineEmail />,
-    label: "Compose Email",
+    label: 'Compose Email',
   },
   [TableActionsSecondary.cancel]: {
     icon: <MdOutlineCancelPresentation />,
-    label: "Cancel",
+    label: 'Cancel',
   },
   [TableActionsSecondary.reschedule]: {
     icon: <MdOutlineCalendarMonth />,
-    label: "Reschedule",
+    label: 'Reschedule',
   },
   [TableActionsSecondary.markAsCompleted]: {
     icon: <MdOutlineEmail />,
-    label: "Mark As Completed",
+    label: 'Mark As Completed',
   },
   [TableActionsSecondary.verifyLegal]: {
     icon: <TbSquareCheck />,
-    label: "Verify Legal",
+    label: 'Verify Legal',
   },
   [TableActionsSecondary.rejectLegal]: {
     icon: <TbSquareRoundedX />,
-    label: "Reject Legal",
+    label: 'Reject Legal',
   },
   [TableActionsSecondary.subcategory]: {
     icon: <VscTypeHierarchySub />,
-    label: "Sub Category",
+    label: 'Sub Category',
   },
   [TableActionsSecondary.xmlMapper]: {
     icon: <VscTypeHierarchySub />,
-    label: "XML Mapper",
+    label: 'XML Mapper',
   },
   [TableActionsSecondary.subAccount]: {
     icon: <FaRegFolder />,
-    label: "Sub Account",
+    label: 'Sub Account',
   },
   [TableActionsSecondary.viewDeals]: {
     icon: <TbClipboardList />,
-    label: "View Deals",
+    label: 'View Deals',
   },
   [TableActionsSecondary.viewContact]: {
     icon: <TbClipboardList />,
-    label: "View Contacts",
+    label: 'View Contacts',
   },
   [TableActionsSecondary.openActivities]: {
     icon: <FaRegFolder />,
-    label: "Open Activities",
+    label: 'Open Activities',
   },
   [TableActionsSecondary.closeActivities]: {
     icon: <FaRegFolder />,
-    label: "Close Activities",
+    label: 'Close Activities',
   },
   [TableActionsSecondary.exportPdf]: {
     icon: <IoDocumentTextOutline />,
-    label: "Export to pdf",
+    label: 'Export to pdf',
   },
   [TableActionsSecondary.sendEmail]: {
     icon: <MdOutlineEmail />,
-    label: "Send Email",
+    label: 'Send Email',
   },
   [TableActionsSecondary.updateRejection]: {
     icon: <TbSquareCheck />,
-    label: "Update Rejection",
+    label: 'Update Rejection',
   },
   [TableActionsSecondary.addOffer]: {
     icon: <MdOutlineDiscount />,
-    label: "Add Offer",
+    label: 'Add Offer',
   },
   [TableActionsSecondary.subSocialAccount]: {
     icon: <FaRegCircleUser />,
 
-    label: "Sub Social Account",
+    label: 'Sub Social Account',
   },
   [TableActionsSecondary.deletedSubAccounts]: {
     icon: <MdDelete />,
-    label: "Deleted Sub Accounts",
+    label: 'Deleted Sub Accounts',
   },
   [TableActionsSecondary.verifyExclusive]: {
     icon: <TbSquareCheck />,
-    label: "Verify and Exclusive",
+    label: 'Verify and Exclusive',
   },
   [TableActionsSecondary.bids]: {
     icon: <FaRegStar />,
-    label: "Bids",
+    label: 'Bids',
   },
   [TableActionsSecondary.rooms]: {
     icon: <RiHome3Line />,
-    label: "Rooms",
+    label: 'Rooms',
   },
   [TableActionsSecondary.portals]: {
     icon: <TiCreditCard />,
-    label: "Portals",
+    label: 'Portals',
   },
   [TableActionsSecondary.listingProject]: {
     icon: <TbListNumbers />,
-    label: "Listing Project",
+    label: 'Listing Project',
   },
   [TableActionsSecondary.manageActivities]: {
     icon: <TbListNumbers />,
-    label: "Manage Activities",
+    label: 'Manage Activities',
   },
   [TableActionsSecondary.manageContent]: {
     icon: <BiSolidBookContent />,
-    label: "Manage Content",
+    label: 'Manage Content',
   },
   [TableActionsSecondary.subInsights]: {
     icon: <TbBrowser />,
-    label: "Sub Insights",
+    label: 'Sub Insights',
   },
   [TableActionsSecondary.viewOrderDetails]: {
     icon: <GrFormView />,
-    label: "View Order Details",
+    label: 'View Order Details',
   },
   [TableActionsSecondary.viewConsumedPlanPackage]: {
     icon: <GrFormView />,
-    label: "View Consumed plan package",
+    label: 'View Consumed plan package',
   },
   [TableActionsSecondary.serviceExpertise]: {
     icon: <TbStar />,
-    label: "Service Expertise",
+    label: 'Service Expertise',
   },
   [TableActionsSecondary.serviceLocation]: {
     icon: <TbLocation />,
-    label: "Service Location",
+    label: 'Service Location',
   },
   [TableActionsSecondary.autorefresh]: {
     icon: <HiOutlineRefresh />,
-    label: "Auto Refresh",
+    label: 'Auto Refresh',
   },
   [TableActionsSecondary.detailedReport]: {
     icon: <TbReport />,
-    label: "Detailed Report",
+    label: 'Detailed Report',
   },
   [TableActionsSecondary.handler]: {
     icon: <BsPerson />,
-    label: "Handler",
+    label: 'Handler',
   },
   [TableActionsSecondary.addTag]: {
     icon: <TbTags />,
-    label: "Add Tag",
+    label: 'Add Tag',
   },
   [TableActionsSecondary.tag]: {
     icon: <TbTags />,
-    label: "Tag",
+    label: 'Tag',
   },
   [TableActionsSecondary.removeTag]: {
     icon: <TbTagOff />,
-    label: "Remove Tag",
+    label: 'Remove Tag',
   },
   [TableActionsSecondary.setReminder]: {
     icon: <TbReport />,
-    label: "Set Reminder",
+    label: 'Set Reminder',
   },
   [TableActionsSecondary.showSimilarity]: {
     icon: <TbReport />,
-    label: "Show Simalarity",
+    label: 'Show Simalarity',
   },
   [TableActionsSecondary.viewtimeline]: {
     icon: <TbTimelineEventText />,
-    label: "View Time Line",
+    label: 'View Time Line',
   },
   [TableActionsSecondary.interestedListing]: {
     icon: <FaClipboardList />,
-    label: "Interested Listing",
+    label: 'Interested Listing',
   },
   [TableActionsSecondary.removeListing]: {
     icon: <MdOutlinePlaylistAddCircle />,
-    label: "Remove Listing",
+    label: 'Remove Listing',
   },
   [TableActionsSecondary.qadetails]: {
     icon: <TbReportAnalytics />,
-    label: "QA Details",
+    label: 'QA Details',
   },
   [TableActionsSecondary.listing]: {
     icon: <TbReportAnalytics />,
-    label: "Listing",
+    label: 'Listing',
   },
   [TableActionsSecondary.regenerateApiKey]: {
     icon: <TbReportAnalytics />,
-    label: "Regenerate Api Key",
+    label: 'Regenerate Api Key',
   },
   [TableActionsSecondary.revokeApiKey]: {
     icon: <TbReportAnalytics />,
-    label: "Revoke Api Key",
+    label: 'Revoke Api Key',
   },
   [TableActionsSecondary.applyRateLimits]: {
     icon: <TbReportAnalytics />,
-    label: "Apply Rate Limits",
+    label: 'Apply Rate Limits',
   },
   [TableActionsSecondary.resetRateLimits]: {
     icon: <TbReportAnalytics />,
-    label: "Reset Rate Limit Counters",
+    label: 'Reset Rate Limit Counters',
   },
   [TableActionsSecondary.editApiKeyPermissions]: {
     icon: <TbReportAnalytics />,
-    label: "Edit Api Key Permissions",
+    label: 'Edit Api Key Permissions',
   },
   [TableActionsSecondary.eventTypes]: {
     icon: <TbReportAnalytics />,
-    label: "Event Types",
+    label: 'Event Types',
   },
   [TableActionsSecondary.customHandler]: {
     icon: <TbReportAnalytics />,
-    label: "Custom Handler",
+    label: 'Custom Handler',
   },
   [TableActionsSecondary.unitVariations]: {
     icon: <TbReportAnalytics />,
-    label: "Unit Variation",
+    label: 'Unit Variation',
   },
   [TableActionsSecondary.reassign]: {
     icon: <CiRedo />,
-    label: "Reassign",
+    label: 'Reassign',
   },
   [TableActionsSecondary.managepayment]: {
     icon: <MdOutlinePayment />,
-    label: "Manage Payment",
+    label: 'Manage Payment',
   },
   [TableActionsSecondary.managetopup]: {
     icon: <CiSaveUp1 />,
-    label: "Manage Top-up",
+    label: 'Manage Top-up',
   },
   [TableActionsSecondary.block]: {
     icon: <MdOutlineLockPerson />,
-    label: "Block",
+    label: 'Block',
   },
   [TableActionsSecondary.uploadcontract]: {
     icon: <MdDriveFolderUpload />,
-    label: "Upload Contract",
+    label: 'Upload Contract',
   },
   [TableActionsSecondary.cancelcontract]: {
     icon: <MdCancelPresentation />,
-    label: "Cancel Contract",
+    label: 'Cancel Contract',
   },
   [TableActionsSecondary.holdsubscription]: {
     icon: <LiaHandHoldingUsdSolid />,
-    label: "Hold Subscription",
+    label: 'Hold Subscription',
   },
   [TableActionsSecondary.extendsubscription]: {
     icon: <CgExtensionAdd />,
-    label: "Extend Subscription",
+    label: 'Extend Subscription',
   },
   [TableActionsSecondary.createsubcontract]: {
     icon: <VscTypeHierarchySub />,
-    label: "Create Subcontract",
+    label: 'Create Subcontract',
   },
   [TableActionsSecondary.manageroles]: {
     icon: <TbReportAnalytics />,
-    label: "Manage Roles",
+    label: 'Manage Roles',
   },
   [TableActionsSecondary.workhours]: {
     icon: <CiTimer />,
-    label: "Work Hours",
+    label: 'Work Hours',
   },
   [TableActionsSecondary.facilities]: {
     icon: <CiStar />,
-    label: "Facilities",
+    label: 'Facilities',
   },
   [TableActionsSecondary.amenities]: {
     icon: <CiStar />,
-    label: "Amenities",
+    label: 'Amenities',
   },
 };

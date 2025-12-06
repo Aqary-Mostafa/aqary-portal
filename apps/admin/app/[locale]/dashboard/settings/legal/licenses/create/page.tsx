@@ -1,7 +1,7 @@
-import CreateLicenseContainer from "@/modules/legal/licenses/create";
+import CreateLicenseContainer from '@/modules/legal/licenses/create';
 
-import { consts } from "@/api/consts";
-import { locations } from "@/api/location";
+import { consts } from '@/api/consts';
+import { locations } from '@/api/location';
 
 /**
  * Fetch init get requests

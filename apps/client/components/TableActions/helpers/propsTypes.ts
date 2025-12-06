@@ -1,5 +1,5 @@
-import { TableActionsPrimary } from "@/types/shared";
-import { TableActionsSecondary } from "@/types/shared";
+import { TableActionsPrimary } from '@/types/shared';
+import { TableActionsSecondary } from '@/types/shared';
 
 export type ActionConfig = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

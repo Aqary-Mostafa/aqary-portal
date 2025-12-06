@@ -1,11 +1,11 @@
-import { getApiResponse } from "@/utils/get-api-response";
+import { getApiResponse } from '@/utils/get-api-response';
 
-import { GetNotificationRow } from "@/types/notification";
+import { GetNotificationRow } from '@/types/notification';
 
 const getNotifications = (pageNo?: number, pageSize?: number) => {
   const pageination = pageSize
     ? `&page_no=${pageNo}&page_size=${pageSize}`
-    : "";
+    : '';
 
   return getApiResponse<{
     data: GetNotificationRow[];

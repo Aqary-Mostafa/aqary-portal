@@ -3,37 +3,37 @@
 import {
   PagesIdAgriculture,
   PermissionsForAgriculture,
-} from "./enums/agriculture";
+} from './enums/agriculture';
 import {
   PagesIdAqaryAdmin,
   PermissionsForAqaryAdmin,
-} from "./enums/aqaryadmin";
-import { PagesIdCalls, PermissionsForCalls } from "./enums/call";
-import { PagesIdCommunityGuide } from "./enums/communityguide";
-import { PagesIdCompanies, PermissionsForCompanies } from "./enums/companies";
+} from './enums/aqaryadmin';
+import { PagesIdCalls, PermissionsForCalls } from './enums/call';
+import { PagesIdCommunityGuide } from './enums/communityguide';
+import { PagesIdCompanies, PermissionsForCompanies } from './enums/companies';
 import {
   PagesIdCompanyUser,
   PermissionsForCompanyUser,
-} from "./enums/companyuser";
-import { PagesIdContacts, PermissionsForContacts } from "./enums/contact";
-import { PagesIdLeads, PermissionsForLeads } from "./enums/leads";
+} from './enums/companyuser';
+import { PagesIdContacts, PermissionsForContacts } from './enums/contact';
+import { PagesIdLeads, PermissionsForLeads } from './enums/leads';
 import {
   PagesIdManagement,
   PermissionsForManagement,
-} from "./enums/management";
-import { PagesIdNetworks, PermissionsForNetworks } from "./enums/network";
-import { PagesIdProject, PermissionsForProject } from "./enums/project";
+} from './enums/management';
+import { PagesIdNetworks, PermissionsForNetworks } from './enums/network';
+import { PagesIdProject, PermissionsForProject } from './enums/project';
 import {
   PagesIdPropertyHub,
   PermissionsForPropertyHub,
-} from "./enums/propertyhub";
-import { PagesIdRequests, PermissionsForRequests } from "./enums/requests";
-import { PagesIdSettings, PermissionsForSettings } from "./enums/settings";
-import { PagesIdUnits, PermissionsForUnits } from "./enums/units";
+} from './enums/propertyhub';
+import { PagesIdRequests, PermissionsForRequests } from './enums/requests';
+import { PagesIdSettings, PermissionsForSettings } from './enums/settings';
+import { PagesIdUnits, PermissionsForUnits } from './enums/units';
 import {
   PagesIdUserCompany,
   PermissionsForUserCompany,
-} from "./enums/userCompany";
+} from './enums/userCompany';
 
 export type PermissionsActions = {
   add?: boolean;

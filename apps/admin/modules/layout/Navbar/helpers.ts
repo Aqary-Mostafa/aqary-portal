@@ -1,4 +1,4 @@
-import { signOut } from "@/utils/auth";
+import { signOut } from '@/utils/auth';
 
 export const toggleFullSceen = (): void => {
   if (!document.fullscreenElement) {

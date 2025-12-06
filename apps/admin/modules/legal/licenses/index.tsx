@@ -1,29 +1,29 @@
-"use client";
-import { Button } from "@mui/material";
+'use client';
+import { Button } from '@mui/material';
 import {
   MaterialReactTable,
   MRT_ColumnDef,
   useMaterialReactTable,
-} from "material-react-table";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React, { type JSX, useMemo, useState } from "react";
+} from 'material-react-table';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import React, { type JSX, useMemo, useState } from 'react';
 
-import useConfirmationDialog from "@/hooks/useConfirmDialog";
+import useConfirmationDialog from '@/hooks/useConfirmDialog';
 
-import { useCrmPageHeader } from "@/components/CrmPageHeader/helper";
-import { SectionLayout } from "@/components/SectionLayout/SectionLayout";
+import { useCrmPageHeader } from '@/components/CrmPageHeader/helper';
+import { SectionLayout } from '@/components/SectionLayout/SectionLayout';
 
-import TableActions from "@/components/TableActions";
-import ViewLicense from "./view";
+import TableActions from '@/components/TableActions';
+import ViewLicense from './view';
 
-import { deleteLicense } from "../api/legal";
-import { getDefaultDeleteDialog } from "@/utils/get-default-dialog";
-import { useDefaultMRTOptions } from "@/utils/use-default-MRT-options";
+import { deleteLicense } from '../api/legal';
+import { getDefaultDeleteDialog } from '@/utils/get-default-dialog';
+import { useDefaultMRTOptions } from '@/utils/use-default-MRT-options';
 
-import { TableActionsPrimary } from "@/types/shared";
-import { LicensesTypes } from "@/types/legal";
-import { AlertBar, AlertBarProps } from "@/components/AlertBar";
+import { TableActionsPrimary } from '@/types/shared';
+import { LicensesTypes } from '@/types/legal';
+import { AlertBar, AlertBarProps } from '@/components/AlertBar';
 
 interface AmenitiesTypes {
   _page: string;
@@ -49,8 +49,8 @@ const LagelLicensesContainer = ({
   data,
 }: AmenitiesTypes): JSX.Element => {
   const [alertBarProps, setAlertBarProps] = useState<AlertBarProps>({
-    message: "",
-    severity: "info",
+    message: '',
+    severity: 'info',
   });
   const dialog = useConfirmationDialog();
   const router = useRouter();
@@ -63,33 +63,33 @@ const LagelLicensesContainer = ({
   const columns = useMemo<MRT_ColumnDef<LicensesTypes>[]>(
     () => [
       {
-        accessorKey: "license_name",
-        header: "License Name",
-        Cell: ({ cell }) => cell.getValue<string>() || "_",
+        accessorKey: 'license_name',
+        header: 'License Name',
+        Cell: ({ cell }) => cell.getValue<string>() || '_',
       },
       {
-        accessorKey: "country_id.label",
-        header: "Country",
-        Cell: ({ cell }) => cell.getValue<string>() || "_",
+        accessorKey: 'country_id.label',
+        header: 'Country',
+        Cell: ({ cell }) => cell.getValue<string>() || '_',
       },
       {
-        accessorKey: "state_id.label",
-        header: "State",
-        Cell: ({ cell }) => cell.getValue<string>() || "_",
+        accessorKey: 'state_id.label',
+        header: 'State',
+        Cell: ({ cell }) => cell.getValue<string>() || '_',
       },
       {
-        accessorKey: "company_industry_id.label",
-        header: "Company Industry",
-        Cell: ({ cell }) => cell.getValue<string>() || "_",
+        accessorKey: 'company_industry_id.label',
+        header: 'Company Industry',
+        Cell: ({ cell }) => cell.getValue<string>() || '_',
       },
       {
-        accessorKey: "company_type_id.label",
-        header: "Company Type",
-        Cell: ({ cell }) => cell.getValue<string>() || "_",
+        accessorKey: 'company_type_id.label',
+        header: 'Company Type',
+        Cell: ({ cell }) => cell.getValue<string>() || '_',
       },
       {
-        accessorKey: "is_active",
-        header: "Mandatory License",
+        accessorKey: 'is_active',
+        header: 'Mandatory License',
         Cell: ({ cell }) => {
           const val = cell.getValue<boolean>();
 
@@ -97,21 +97,21 @@ const LagelLicensesContainer = ({
         },
       },
     ],
-    []
+    [],
   );
 
   const handleDelete = (id: number) => {
     deleteLicense({ id: id?.toString() }).then((res) => {
-      if (res?.Message === "success") {
+      if (res?.Message === 'success') {
         setAlertBarProps({
           message: `Deleted successfully`,
-          severity: "success",
+          severity: 'success',
         });
         router.refresh();
       } else
         setAlertBarProps({
           message: `Failed to Delete`,
-          severity: "error",
+          severity: 'error',
         });
     });
   };
@@ -123,7 +123,7 @@ const LagelLicensesContainer = ({
     data,
     muiTableContainerProps: {
       sx: {
-        maxHeight: "clamp(350px, calc(100vh - 376px), 9999px)",
+        maxHeight: 'clamp(350px, calc(100vh - 376px), 9999px)',
       },
     },
     rowCount: total,
@@ -135,10 +135,10 @@ const LagelLicensesContainer = ({
               [TableActionsPrimary.view]: {
                 action: () =>
                   dialog.openConfirmDialog({
-                    title: "View information",
+                    title: 'View information',
                     content: <ViewLicense row={row} />,
                     dialogPaperProps: {
-                      className: "view-information-dialog",
+                      className: 'view-information-dialog',
                     },
                     hideCancelButton: true,
                     hideConfirmButton: true,
@@ -160,8 +160,8 @@ const LagelLicensesContainer = ({
       );
     },
     renderTopToolbarCustomActions: () => (
-      <Link href="licenses/create">
-        <Button variant="outlined">create License</Button>
+      <Link href='licenses/create'>
+        <Button variant='outlined'>create License</Button>
       </Link>
     ),
   });
@@ -169,15 +169,15 @@ const LagelLicensesContainer = ({
   useCrmPageHeader({
     breadcrumbs: [
       {
-        label: "Legal Settings",
-        link: "/dashboard/settings/legal/",
+        label: 'Legal Settings',
+        link: '/dashboard/settings/legal/',
       },
       {
-        label: "Company License",
-        link: "#",
+        label: 'Company License',
+        link: '#',
       },
     ],
-    pageHeader: "Company License",
+    pageHeader: 'Company License',
   });
 
   return (
@@ -185,8 +185,8 @@ const LagelLicensesContainer = ({
       {/* Table section */}
       <SectionLayout
         header={{
-          title: "List of company License",
-          link: "/dashboard/settings/legal/",
+          title: 'List of company License',
+          link: '/dashboard/settings/legal/',
         }}
       >
         <MaterialReactTable table={table} />
@@ -197,7 +197,7 @@ const LagelLicensesContainer = ({
 
       {/* Ready to render Alertbar */}
       <AlertBar
-        onClose={() => setAlertBarProps({ message: "" })}
+        onClose={() => setAlertBarProps({ message: '' })}
         {...alertBarProps}
       />
     </>

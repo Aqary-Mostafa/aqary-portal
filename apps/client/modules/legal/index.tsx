@@ -1,19 +1,19 @@
-"use client";
-import { GridLegacy } from "@mui/material";
+'use client';
+import { GridLegacy } from '@mui/material';
 
-import { useCrmPageHeader } from "@/components/CrmPageHeader/helper";
-import { SectionLayout } from "@/components/SectionLayout/SectionLayout";
-import TabLink from "@/components/TabLink";
+import { useCrmPageHeader } from '@/components/CrmPageHeader/helper';
+import { SectionLayout } from '@/components/SectionLayout/SectionLayout';
+import TabLink from '@/components/TabLink';
 
 const LegalSettingContainer = () => {
   useCrmPageHeader({
     breadcrumbs: [
       {
-        label: "Legal setting",
-        link: "/dashboard/settings/legal/",
+        label: 'Legal setting',
+        link: '/dashboard/settings/legal/',
       },
     ],
-    pageHeader: "Legal setting",
+    pageHeader: 'Legal setting',
   });
 
   return (
@@ -33,13 +33,13 @@ const LegalSettingContainer = () => {
       <SectionLayout>
         <GridLegacy container spacing={3}>
           <GridLegacy item xs={12} sm={6} md={4}>
-            <TabLink href="legal/licenses" label="Licenses" />
+            <TabLink href='legal/licenses' label='Licenses' />
           </GridLegacy>
           <GridLegacy item xs={12} sm={6} md={4}>
-            <TabLink href="legal/certificate" label="Certificate" />
+            <TabLink href='legal/certificate' label='Certificate' />
           </GridLegacy>
           <GridLegacy item xs={12} sm={6} md={4}>
-            <TabLink href="legal/legal_condition " label="Legal condition " />
+            <TabLink href='legal/legal_condition ' label='Legal condition ' />
           </GridLegacy>
         </GridLegacy>
       </SectionLayout>

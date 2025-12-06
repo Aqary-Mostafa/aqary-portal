@@ -1,10 +1,10 @@
-import { getApiResponse } from "@/utils/get-api-response";
+import { getApiResponse } from '@/utils/get-api-response';
 
 import {
   CertificatesTypes,
   LgalConditionsTypes,
   LicensesTypes,
-} from "@/types/legal";
+} from '@/types/legal';
 
 const getCertificate = ({ id }: { id: string }) =>
   getApiResponse<{
@@ -36,7 +36,7 @@ const getLgalCondition = ({ id }: { id: string }) =>
     revalidate: 0,
   });
 
-const getLicenses = ({ pageNo = "1", pageSize = "5" }) =>
+const getLicenses = ({ pageNo = '1', pageSize = '5' }) =>
   getApiResponse<{
     Total?: number;
     data: LicensesTypes[];
@@ -47,7 +47,7 @@ const getLicenses = ({ pageNo = "1", pageSize = "5" }) =>
     revalidate: 0,
   });
 
-const getCertificates = ({ pageNo = "1", pageSize = "5" }) =>
+const getCertificates = ({ pageNo = '1', pageSize = '5' }) =>
   getApiResponse<{
     Total?: number;
     data: CertificatesTypes[];
@@ -57,11 +57,11 @@ const getCertificates = ({ pageNo = "1", pageSize = "5" }) =>
     apiEndpoint: `${process.env.NEXT_PUBLIC_API_URL}/v2/dashboard/dashboard-account/settings/certificates?page_no=${pageNo}&page_size=${pageSize}`,
     revalidate: 0,
     headers: {
-      cache: "no-store",
+      cache: 'no-store',
     },
   });
 
-const getLgalConditions = ({ pageNo = "1", pageSize = "5" }) =>
+const getLgalConditions = ({ pageNo = '1', pageSize = '5' }) =>
   getApiResponse<{
     Total?: number;
     data: LgalConditionsTypes[];
@@ -71,7 +71,7 @@ const getLgalConditions = ({ pageNo = "1", pageSize = "5" }) =>
     apiEndpoint: `${process.env.NEXT_PUBLIC_API_URL}/v2/dashboard/dashboard-account/settings/legal-conditions?page_no=${pageNo}&page_size=${pageSize}`,
     revalidate: 0,
     headers: {
-      cache: "no-store",
+      cache: 'no-store',
     },
   });
 
@@ -82,7 +82,7 @@ const createLicense = (formData: FormData) => {
   }>({
     apiEndpoint: `${process.env.NEXT_PUBLIC_API_URL}/v2/dashboard/dashboard-account/settings/licenses/`,
     requestData: formData,
-    method: "POST",
+    method: 'POST',
   });
 };
 
@@ -93,7 +93,7 @@ const createLegelCondition = (formData: FormData) => {
   }>({
     apiEndpoint: `${process.env.NEXT_PUBLIC_API_URL}/v2/dashboard/dashboard-account/settings/legal-conditions/`,
     requestData: formData,
-    method: "POST",
+    method: 'POST',
   });
 };
 
@@ -104,7 +104,7 @@ const updateLegelCondition = (formData: FormData) => {
   }>({
     apiEndpoint: `${process.env.NEXT_PUBLIC_API_URL}/v2/dashboard/dashboard-account/settings/legal-conditions/`,
     requestData: formData,
-    method: "PUT",
+    method: 'PUT',
   });
 };
 
@@ -115,7 +115,7 @@ const createCertificate = (formData: FormData) => {
   }>({
     apiEndpoint: `${process.env.NEXT_PUBLIC_API_URL}/v2/dashboard/dashboard-account/settings/certificates/`,
     requestData: formData,
-    method: "POST",
+    method: 'POST',
   });
 };
 
@@ -126,7 +126,7 @@ const updateLicense = (formData: FormData) => {
   }>({
     apiEndpoint: `${process.env.NEXT_PUBLIC_API_URL}/v2/dashboard/dashboard-account/settings/licenses/`,
     requestData: formData,
-    method: "PUT",
+    method: 'PUT',
   });
 };
 
@@ -137,7 +137,7 @@ const updateCertificate = (formData: FormData) => {
   }>({
     apiEndpoint: `${process.env.NEXT_PUBLIC_API_URL}/v2/dashboard/dashboard-account/settings/certificates`,
     requestData: formData,
-    method: "PUT",
+    method: 'PUT',
   });
 };
 
@@ -147,7 +147,7 @@ const deleteLicense = ({ id }: { id: string }) => {
     error?: string;
   }>({
     apiEndpoint: `${process.env.NEXT_PUBLIC_API_URL}/v2/dashboard/dashboard-account/settings/licenses/${id}`,
-    method: "DELETE",
+    method: 'DELETE',
   });
 };
 
@@ -157,7 +157,7 @@ const deleteCertificate = ({ id }: { id: string }) => {
     error?: string;
   }>({
     apiEndpoint: `${process.env.NEXT_PUBLIC_API_URL}/v2/dashboard/dashboard-account/settings/certificates/${id}`,
-    method: "DELETE",
+    method: 'DELETE',
   });
 };
 
@@ -167,7 +167,7 @@ const deleteLegalConditions = ({ id }: { id: string }) => {
     error?: string;
   }>({
     apiEndpoint: `${process.env.NEXT_PUBLIC_API_URL}/v2/dashboard/dashboard-account/settings/legal-conditions/${id}`,
-    method: "DELETE",
+    method: 'DELETE',
   });
 };
 

@@ -1,6 +1,6 @@
 export enum LocalizationType {
-  en = "en",
-  ar = "ar",
+  en = 'en',
+  ar = 'ar',
 }
 
 export type BannerPackageType = {
@@ -12,9 +12,9 @@ export type BannerPackageType = {
 };
 
 export enum OathConstants {
-  ProviderTypes = "PROVIDRTYPES",
-  EnvironmentTypes = "ENVIRONMENTS",
-  PlatformTypes = "PLATFROMTYPE",
+  ProviderTypes = 'PROVIDRTYPES',
+  EnvironmentTypes = 'ENVIRONMENTS',
+  PlatformTypes = 'PLATFROMTYPE',
 }
 
 export interface LocationItems {

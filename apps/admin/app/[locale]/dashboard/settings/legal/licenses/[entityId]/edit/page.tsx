@@ -1,9 +1,9 @@
-import CreateLicenseContainer from "@/modules/legal/licenses/create";
+import CreateLicenseContainer from '@/modules/legal/licenses/create';
 
-import { consts } from "@/api/consts";
-import { locations } from "@/api/location";
-import { getLicense } from "@/modules/legal/api/legal";
-import { CreateLicenseSchemaFormValues } from "@/modules/legal/validator/license";
+import { consts } from '@/api/consts';
+import { locations } from '@/api/location';
+import { getLicense } from '@/modules/legal/api/legal';
+import { CreateLicenseSchemaFormValues } from '@/modules/legal/validator/license';
 
 /**
  * Fetch init get requests
@@ -35,13 +35,13 @@ const EditLicense = async (props: {
   });
 
   const convertedData: CreateLicenseSchemaFormValues = {
-    license_name: licenseData?.license_name || "",
+    license_name: licenseData?.license_name || '',
     license_name_ar: licenseData?.license_name_ar,
     country: licenseData?.country_id,
     state: licenseData?.state_id,
     company_industry: licenseData?.company_industry_id,
     company_types: licenseData?.company_type_id,
-    info_message: "ask backend",
+    info_message: 'ask backend',
     mandatory_license: licenseData?.mandatory_license || false,
     general_license: licenseData?.is_general || false,
   };

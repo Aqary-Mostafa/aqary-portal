@@ -1,15 +1,15 @@
-import MenuIcon from "@mui/icons-material/Menu";
-import { Box, IconButton, Toolbar, Typography } from "@mui/material";
-import Link from "next/link";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import MenuIcon from '@mui/icons-material/Menu';
+import { Box, IconButton, Toolbar, Typography } from '@mui/material';
+import Link from 'next/link';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import "./styles.scss";
+import './styles.scss';
 
-import LogoImage from "../../../LogoImage";
+import LogoImage from '../../../LogoImage';
 
-import { AppDispatch, RootState } from "../../../../store";
-import { toggleSidebar } from "../../../../store/slices/userSlice";
+import { AppDispatch, RootState } from '../../../../store';
+import { toggleSidebar } from '../../../../store/slices/userSlice';
 
 const CrmLogo = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -18,18 +18,18 @@ const CrmLogo = () => {
   return (
     <>
       <Box
-        className="crm-logo"
+        className='crm-logo'
         sx={{
-          flexDirection: drawer?.isOpen ? "row" : "column",
+          flexDirection: drawer?.isOpen ? 'row' : 'column',
         }}
       >
-        <Box component={Link} href="/dashboard" className="logo">
+        <Box component={Link} href='/dashboard' className='logo'>
           <LogoImage shortIcon={!drawer?.isOpen} />
         </Box>
         <Toolbar disableGutters>
           <IconButton
-            className="action-btn"
-            aria-label="open drawer"
+            className='action-btn'
+            aria-label='open drawer'
             onClick={() => dispatch(toggleSidebar())}
           >
             <MenuIcon />
@@ -37,7 +37,7 @@ const CrmLogo = () => {
         </Toolbar>
       </Box>
       {drawer?.isOpen && (
-        <Typography component="p" className="crm-subtitle">
+        <Typography component='p' className='crm-subtitle'>
           Property Management Platform
         </Typography>
       )}

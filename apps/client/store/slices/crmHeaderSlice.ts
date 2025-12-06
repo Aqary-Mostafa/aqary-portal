@@ -16,13 +16,13 @@ const crmHeaderSlice = createSlice({
   reducers: {
     setBreadCrumbs: (
       state,
-      action: PayloadAction<CrmHeaderSlice['breadcrumbs']>
+      action: PayloadAction<CrmHeaderSlice['breadcrumbs']>,
     ) => {
       state.breadcrumbs = action.payload;
     },
     setPageHeader: (
       state,
-      action: PayloadAction<CrmHeaderSlice['pageHeader']>
+      action: PayloadAction<CrmHeaderSlice['pageHeader']>,
     ) => {
       state.pageHeader = action.payload;
     },

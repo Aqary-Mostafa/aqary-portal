@@ -1,18 +1,18 @@
-import { Avatar, Badge, Box, Button, Drawer, Typography } from "@mui/material";
-import dayjs from "dayjs";
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import useSWR from "swr";
+import { Avatar, Badge, Box, Button, Drawer, Typography } from '@mui/material';
+import dayjs from 'dayjs';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import useSWR from 'swr';
 
-import { RootState } from "@/store";
+import { RootState } from '@/store';
 import {
   setCount,
   setIsNew,
   setNoticications,
-} from "@/store/slices/notification";
+} from '@/store/slices/notification';
 
-import { getNotifications } from "@/api/notifications";
+import { getNotifications } from '@/api/notifications';
 
 export type NotificationContentProps = {
   isFullView?: boolean;
@@ -23,7 +23,7 @@ const NotificationContent = ({ isFullView }: NotificationContentProps) => {
 
   const dispatch = useDispatch();
   const { notficationsCount } = useSelector(
-    (state: RootState) => state.notification
+    (state: RootState) => state.notification,
   );
 
   const limit = isFullView ? 100 : 10;
@@ -40,7 +40,7 @@ const NotificationContent = ({ isFullView }: NotificationContentProps) => {
         dispatch(setNoticications(res?.data));
         dispatch(setCount(res?.Total || 0));
       },
-    }
+    },
   );
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const NotificationContent = ({ isFullView }: NotificationContentProps) => {
   }, [dispatch]);
 
   const formatRelativeTime = (timestamp: string) => {
-    const diffInMinutes = dayjs().diff(dayjs(timestamp), "minute");
+    const diffInMinutes = dayjs().diff(dayjs(timestamp), 'minute');
     const diffInHours = diffInMinutes / 60;
     const diffInDays = diffInHours / 24;
     const diffInMonths = diffInDays / 30;
@@ -58,16 +58,16 @@ const NotificationContent = ({ isFullView }: NotificationContentProps) => {
       return `${diffInMinutes} min ago`;
     } else if (diffInHours < 24) {
       const hours = Math.floor(diffInHours);
-      return `${hours} hour${hours > 1 ? "s" : ""} ago`;
+      return `${hours} hour${hours > 1 ? 's' : ''} ago`;
     } else if (diffInDays < 30) {
       const days = Math.floor(diffInDays);
-      return `${days} day${days > 1 ? "s" : ""} ago`;
+      return `${days} day${days > 1 ? 's' : ''} ago`;
     } else if (diffInDays < 365) {
       const months = Math.floor(diffInMonths);
-      return `${months} month${months > 1 ? "s" : ""} ago`;
+      return `${months} month${months > 1 ? 's' : ''} ago`;
     } else {
       const years = Math.floor(diffInYears);
-      return `${years} year${years > 1 ? "s" : ""} ago`;
+      return `${years} year${years > 1 ? 's' : ''} ago`;
     }
   };
 
@@ -76,23 +76,23 @@ const NotificationContent = ({ isFullView }: NotificationContentProps) => {
       <Drawer
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
-        anchor="right"
-        className="notifications-fullview"
+        anchor='right'
+        className='notifications-fullview'
       >
         <NotificationContent isFullView />
       </Drawer>
 
       <Box
-        className="notifications-container"
+        className='notifications-container'
         sx={{
-          maxHeight: isFullView ? "100%" : "500px",
+          maxHeight: isFullView ? '100%' : '500px',
         }}
       >
-        <Box className="heading">
-          <Box className="title">
+        <Box className='heading'>
+          <Box className='title'>
             <Typography>All Notifications</Typography>
             {notificationData && (
-              <Badge badgeContent={notficationsCount} color="error" />
+              <Badge badgeContent={notficationsCount} color='error' />
             )}
           </Box>
           {/* <Tooltip title='Mark all as read'>
@@ -118,14 +118,14 @@ const NotificationContent = ({ isFullView }: NotificationContentProps) => {
           className='filter'
         /> */}
 
-        <Box className="container">
+        <Box className='container'>
           {notificationData ? (
             notificationData?.data?.map((notify) => (
-              <Box className="notification" key={notify?.title}>
-                <Box className="notification__content">
-                  <Avatar className="user-image" src={notify?.sender?.image} />
-                  <Box className="user-data">
-                    <Box className="user-data__header">
+              <Box className='notification' key={notify?.title}>
+                <Box className='notification__content'>
+                  <Avatar className='user-image' src={notify?.sender?.image} />
+                  <Box className='user-data'>
+                    <Box className='user-data__header'>
                       <Typography>{notify?.sender?.name}</Typography>
                       <Typography>
                         {formatRelativeTime(notify?.read_at)}
@@ -143,8 +143,8 @@ const NotificationContent = ({ isFullView }: NotificationContentProps) => {
           ) : (
             <Box
               sx={{
-                padding: "16px",
-                fontSize: "16px",
+                padding: '16px',
+                fontSize: '16px',
               }}
             >
               No Notfications!

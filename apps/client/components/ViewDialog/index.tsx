@@ -1,26 +1,26 @@
-import { Box, Chip, GridLegacy, Skeleton } from "@mui/material";
+import { Box, Chip, GridLegacy, Skeleton } from '@mui/material';
 import {
   MaterialReactTable,
   MRT_ColumnDef,
   useMaterialReactTable,
-} from "material-react-table";
-import Image from "next/image";
-import React, { useMemo } from "react";
+} from 'material-react-table';
+import Image from 'next/image';
+import React, { useMemo } from 'react';
 
-import FieldThumbnail from "@/components/FieldThumbnail";
+import FieldThumbnail from '@/components/FieldThumbnail';
 
-import { isValidUrl } from "@/utils/helpers";
-import { htmlSanitize } from "@/utils/html-sanitize";
-import { useDefaultMRTOptions } from "@/utils/use-default-MRT-options";
+import { isValidUrl } from '@/utils/helpers';
+import { htmlSanitize } from '@/utils/html-sanitize';
+import { useDefaultMRTOptions } from '@/utils/use-default-MRT-options';
 
 type CustomType =
-  | "chip"
-  | "description"
-  | "image"
-  | "table"
-  | "icon"
-  | "html"
-  | "images";
+  | 'chip'
+  | 'description'
+  | 'image'
+  | 'table'
+  | 'icon'
+  | 'html'
+  | 'images';
 
 export interface ViewSection {
   label?: string;
@@ -48,29 +48,29 @@ const ViewDialog = ({ data }: { data?: ViewSections }) => {
     return (
       <GridLegacy container spacing={2}>
         <GridLegacy item xs={3}>
-          <Skeleton variant="text" width="60%" height={30} />
-          <Skeleton variant="text" width="80%" height={30} />
+          <Skeleton variant='text' width='60%' height={30} />
+          <Skeleton variant='text' width='80%' height={30} />
         </GridLegacy>
         <GridLegacy item xs={3}>
-          <Skeleton variant="text" width="60%" height={30} />
-          <Skeleton variant="text" width="80%" height={30} />
+          <Skeleton variant='text' width='60%' height={30} />
+          <Skeleton variant='text' width='80%' height={30} />
         </GridLegacy>
         <GridLegacy item xs={3}>
-          <Skeleton variant="text" width="60%" height={30} />
-          <Skeleton variant="text" width="80%" height={30} />
+          <Skeleton variant='text' width='60%' height={30} />
+          <Skeleton variant='text' width='80%' height={30} />
         </GridLegacy>
 
         <GridLegacy item xs={3}>
-          <Skeleton variant="text" width="60%" height={30} />
-          <Skeleton variant="text" width="80%" height={30} />
+          <Skeleton variant='text' width='60%' height={30} />
+          <Skeleton variant='text' width='80%' height={30} />
         </GridLegacy>
         <GridLegacy item xs={3}>
-          <Skeleton variant="text" width="60%" height={30} />
-          <Skeleton variant="text" width="80%" height={30} />
+          <Skeleton variant='text' width='60%' height={30} />
+          <Skeleton variant='text' width='80%' height={30} />
         </GridLegacy>
         <GridLegacy item xs={3}>
-          <Skeleton variant="text" width="60%" height={30} />
-          <Skeleton variant="text" width="80%" height={30} />
+          <Skeleton variant='text' width='60%' height={30} />
+          <Skeleton variant='text' width='80%' height={30} />
         </GridLegacy>
       </GridLegacy>
     );
@@ -84,10 +84,10 @@ const ViewDialog = ({ data }: { data?: ViewSections }) => {
     custom,
   }: {
     section: ViewSection;
-    custom?: ViewSection["custom"];
+    custom?: ViewSection['custom'];
   }) => {
     const ReChip = (data: string[]) => (
-      <Box className="chips">
+      <Box className='chips'>
         {data?.map((x) => {
           return <Chip key={x} label={x} />;
         })}
@@ -100,7 +100,7 @@ const ViewDialog = ({ data }: { data?: ViewSections }) => {
       const columns: MRT_ColumnDef<any>[] = useMemo(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         () => (section?.tableheader as MRT_ColumnDef<any>[]) || [],
-        []
+        [],
       );
       const table = useMaterialReactTable({
         ...defaultMRTOptions,
@@ -109,7 +109,7 @@ const ViewDialog = ({ data }: { data?: ViewSections }) => {
         data: (section?.tablebody as any[]) || [],
         muiTableContainerProps: {
           sx: {
-            maxHeight: "clamp(350px, calc(100vh - 404px), 9999px)",
+            maxHeight: 'clamp(350px, calc(100vh - 404px), 9999px)',
           },
         },
         enablePagination: false,
@@ -122,13 +122,13 @@ const ViewDialog = ({ data }: { data?: ViewSections }) => {
 
     return (
       <GridLegacy container>
-        <GridLegacy item xs={12} className="section-head">
+        <GridLegacy item xs={12} className='section-head'>
           {section?.label}
         </GridLegacy>
         {/* If chip ====!!==== */}
-        {custom === "chip" && ReChip(section?.data as string[])}
+        {custom === 'chip' && ReChip(section?.data as string[])}
         {/* If description ====!!==== */}
-        {custom === "html" &&
+        {custom === 'html' &&
           section?.data?.map((x) => {
             const item = x as {
               label: string;
@@ -136,19 +136,19 @@ const ViewDialog = ({ data }: { data?: ViewSections }) => {
             };
 
             return (
-              <GridLegacy key={item?.label} item xs={12} className="item">
-                <Box className="label">{item?.label}:</Box>
-                <Box className="value">
+              <GridLegacy key={item?.label} item xs={12} className='item'>
+                <Box className='label'>{item?.label}:</Box>
+                <Box className='value'>
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: htmlSanitize({ userHtml: item?.value || "" }),
+                      __html: htmlSanitize({ userHtml: item?.value || '' }),
                     }}
                   />
                 </Box>
               </GridLegacy>
             );
           })}
-        {custom === "description" &&
+        {custom === 'description' &&
           section?.data?.map((x) => {
             const item = x as {
               label: string;
@@ -156,14 +156,14 @@ const ViewDialog = ({ data }: { data?: ViewSections }) => {
             };
 
             return (
-              <GridLegacy key={item?.label} item xs={12} className="item">
-                <Box className="label">{item?.label}:</Box>
-                <Box className="value">{item?.value ?? "_"}</Box>
+              <GridLegacy key={item?.label} item xs={12} className='item'>
+                <Box className='label'>{item?.label}:</Box>
+                <Box className='value'>{item?.value ?? '_'}</Box>
               </GridLegacy>
             );
           })}
         {/* If table ====!!==== */}
-        {custom === "table" && <TableCustom />}
+        {custom === 'table' && <TableCustom />}
         {/* If normal ====!!==== */}
         {!custom && (
           <>
@@ -175,43 +175,43 @@ const ViewDialog = ({ data }: { data?: ViewSections }) => {
                 hideWhenNull?: string;
               };
 
-              if (item.custom === "chip")
+              if (item.custom === 'chip')
                 return (
-                  <GridLegacy key={item?.label} item xs={12} className="item">
-                    <Box className="label">{item?.label}:</Box>
-                    <Box className="value">
+                  <GridLegacy key={item?.label} item xs={12} className='item'>
+                    <Box className='label'>{item?.label}:</Box>
+                    <Box className='value'>
                       {ReChip(item.value as unknown as string[])}
                     </Box>
                   </GridLegacy>
                 );
 
-              if (item.custom === "image")
+              if (item.custom === 'image')
                 return (
                   <GridLegacy
                     key={item.value}
-                    className="item"
+                    className='item'
                     item
                     lg={3.5}
                     md={6}
                     xs={12}
                   >
-                    <Box className="label">{item?.label}:</Box>
-                    <Box className="value">
+                    <Box className='label'>{item?.label}:</Box>
+                    <Box className='value'>
                       <FieldThumbnail data={item?.value} />
                     </Box>
                   </GridLegacy>
                 );
 
-              if (item.custom === "images")
+              if (item.custom === 'images')
                 return (
                   <>
-                    <GridLegacy className="item" item xs={12}>
-                      <Box className="label">{item?.label}:</Box>
+                    <GridLegacy className='item' item xs={12}>
+                      <Box className='label'>{item?.label}:</Box>
                     </GridLegacy>
                     {(item?.value as unknown as string[])?.map((x, idx) => (
                       <GridLegacy
                         key={idx}
-                        className="item"
+                        className='item'
                         item
                         xs={12}
                         sm={3}
@@ -220,23 +220,23 @@ const ViewDialog = ({ data }: { data?: ViewSections }) => {
                         <FieldThumbnail data={x} />
                       </GridLegacy>
                     ))}
-                    <GridLegacy className="item" item xs={12} />
+                    <GridLegacy className='item' item xs={12} />
                   </>
                 );
 
-              if (item.custom === "icon")
+              if (item.custom === 'icon')
                 if (item?.value && isValidUrl(item?.value))
                   return (
                     <GridLegacy
                       key={item.value}
-                      className="item icon"
+                      className='item icon'
                       item
                       lg={3.5}
                       md={6}
                       xs={12}
                     >
-                      <Box className="label">{item?.label}:</Box>
-                      <Box className="value">
+                      <Box className='label'>{item?.label}:</Box>
+                      <Box className='value'>
                         <Image src={item?.value} alt={item?.label} fill />
                       </Box>
                     </GridLegacy>
@@ -252,10 +252,10 @@ const ViewDialog = ({ data }: { data?: ViewSections }) => {
                   lg={section?.data?.length === 2 ? 5.5 : 3.5}
                   md={6}
                   xs={12}
-                  className="item"
+                  className='item'
                 >
-                  <Box className="label">{item?.label}:</Box>
-                  <Box className="value">{item?.value || "_"}</Box>
+                  <Box className='label'>{item?.label}:</Box>
+                  <Box className='value'>{item?.value || '_'}</Box>
                 </GridLegacy>
               );
             })}
@@ -266,7 +266,7 @@ const ViewDialog = ({ data }: { data?: ViewSections }) => {
   };
 
   return (
-    <Box className="sections">
+    <Box className='sections'>
       {sections?.map((x) => {
         if (data[x])
           return (

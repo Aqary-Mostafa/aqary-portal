@@ -1,8 +1,8 @@
-import { PagesIdTypes } from "../enums";
-import { PagesIdProject, PermissionsForProject } from "../enums/project";
+import { PagesIdTypes } from '../enums';
+import { PagesIdProject, PermissionsForProject } from '../enums/project';
 
 export const _projectActions = (
-  _isAccessed: (pg?: PagesIdTypes) => boolean
+  _isAccessed: (pg?: PagesIdTypes) => boolean,
 ) => {
   return {
     [PermissionsForProject.projectloc]: {
@@ -13,7 +13,7 @@ export const _projectActions = (
       publish: _isAccessed(PagesIdProject.localprojectspublish),
       edit: _isAccessed(PagesIdProject.localprojectsedit),
       financialProviders: _isAccessed(
-        PagesIdProject.localprojectsfinancialproviders
+        PagesIdProject.localprojectsfinancialproviders,
       ),
       gallery: _isAccessed(PagesIdProject.localprojectsgallery),
       promotions: _isAccessed(PagesIdProject.localprojectspromotions),
@@ -35,7 +35,7 @@ export const _projectActions = (
       publish: _isAccessed(PagesIdProject.internationalprojectspublish),
       edit: _isAccessed(PagesIdProject.internationalprojectsedit),
       financialProviders: _isAccessed(
-        PagesIdProject.internationalprojectsfinancialproviders
+        PagesIdProject.internationalprojectsfinancialproviders,
       ),
       gallery: _isAccessed(PagesIdProject.internationalprojectsgallery),
       promotions: _isAccessed(PagesIdProject.internationalprojectspromotions),
@@ -46,7 +46,7 @@ export const _projectActions = (
       morePermissions: {
         promotions: {
           delete: _isAccessed(
-            PagesIdProject.internationalprojectspromotionsdelete
+            PagesIdProject.internationalprojectspromotionsdelete,
           ),
         },
       },
@@ -81,7 +81,7 @@ export const _projectActions = (
       unshare: _isAccessed(PagesIdProject.sharedprojectsunshare),
       view: _isAccessed(PagesIdProject.sharedprojectsview),
       internationalshare: _isAccessed(
-        PagesIdProject.sharedprojectsinternationalshare
+        PagesIdProject.sharedprojectsinternationalshare,
       ),
       internalshare: _isAccessed(PagesIdProject.sharedprojectsinternalshare),
     },
@@ -101,10 +101,10 @@ export const _projectActions = (
     },
     [PermissionsForProject.internationalprojectsfinancialproviders]: {
       add: _isAccessed(
-        PagesIdProject.internationalprojectsfinancialprovidersadd
+        PagesIdProject.internationalprojectsfinancialprovidersadd,
       ),
       delete: _isAccessed(
-        PagesIdProject.internationalprojectsfinancialprovidersdelete
+        PagesIdProject.internationalprojectsfinancialprovidersdelete,
       ),
     },
     [PermissionsForProject.localprojectsgallery]: {
@@ -167,7 +167,7 @@ export const _projectActions = (
       view: _isAccessed(PagesIdProject.localprojectspropertiesdocumentsview),
       edit: _isAccessed(PagesIdProject.localprojectspropertiesdocumentsedit),
       delete: _isAccessed(
-        PagesIdProject.localprojectspropertiesdocumentsdelete
+        PagesIdProject.localprojectspropertiesdocumentsdelete,
       ),
     },
     [PermissionsForProject.localprojectspropertiesunittype]: {
@@ -184,7 +184,7 @@ export const _projectActions = (
     [PermissionsForProject.localprojectspropertiesunits]: {
       add: _isAccessed(PagesIdProject.localprojectspropertiesunitsadd),
       documents: _isAccessed(
-        PagesIdProject.localprojectspropertiesunitsdocuments
+        PagesIdProject.localprojectspropertiesunitsdocuments,
       ),
       gallery: _isAccessed(PagesIdProject.localprojectspropertiesunitsgallery),
       payment: _isAccessed(PagesIdProject.localprojectspropertiesunitspayment),
@@ -193,184 +193,184 @@ export const _projectActions = (
     [PermissionsForProject.localprojectspropertiesunitsdocuments]: {
       add: _isAccessed(PagesIdProject.localprojectspropertiesunitsdocumentsadd),
       view: _isAccessed(
-        PagesIdProject.localprojectspropertiesunitsdocumentsview
+        PagesIdProject.localprojectspropertiesunitsdocumentsview,
       ),
       edit: _isAccessed(
-        PagesIdProject.localprojectspropertiesunitsdocumentsedit
+        PagesIdProject.localprojectspropertiesunitsdocumentsedit,
       ),
       delete: _isAccessed(
-        PagesIdProject.localprojectspropertiesunitsdocumentsdelete
+        PagesIdProject.localprojectspropertiesunitsdocumentsdelete,
       ),
     },
     [PermissionsForProject.localprojectspropertiesunitsgallery]: {
       add: _isAccessed(PagesIdProject.localprojectspropertiesunitsgalleryadd),
       edit: _isAccessed(PagesIdProject.localprojectspropertiesunitsgalleryedit),
       delete: _isAccessed(
-        PagesIdProject.localprojectspropertiesunitsgallerydelete
+        PagesIdProject.localprojectspropertiesunitsgallerydelete,
       ),
       import: _isAccessed(
-        PagesIdProject.localprojectspropertiesunitsgalleryimport
+        PagesIdProject.localprojectspropertiesunitsgalleryimport,
       ),
     },
     [PermissionsForProject.localprojectspropertiesunitspayment]: {
       add: _isAccessed(PagesIdProject.localprojectspropertiesunitspaymentadd),
       edit: _isAccessed(PagesIdProject.localprojectspropertiesunitspaymentedit),
       delete: _isAccessed(
-        PagesIdProject.localprojectspropertiesunitspaymentdelete
+        PagesIdProject.localprojectspropertiesunitspaymentdelete,
       ),
     },
     [PermissionsForProject.localprojectspropertiesunitsplans]: {
       add: _isAccessed(PagesIdProject.localprojectspropertiesunitsplansadd),
       edit: _isAccessed(PagesIdProject.localprojectspropertiesunitsplansedit),
       delete: _isAccessed(
-        PagesIdProject.localprojectspropertiesunitsplansdelete
+        PagesIdProject.localprojectspropertiesunitsplansdelete,
       ),
     },
     [PermissionsForProject.internationalprojectsproperties]: {
       payment: _isAccessed(
-        PagesIdProject.internationalprojectspropertiespayment
+        PagesIdProject.internationalprojectspropertiespayment,
       ),
       exclusive: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesexclusive
+        PagesIdProject.internationalprojectspropertiesexclusive,
       ),
       add: _isAccessed(PagesIdProject.internationalprojectspropertiesadd),
       plans: _isAccessed(PagesIdProject.internationalprojectspropertiesplans),
       documents: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesdocuments
+        PagesIdProject.internationalprojectspropertiesdocuments,
       ),
       unittype: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunittype
+        PagesIdProject.internationalprojectspropertiesunittype,
       ),
       gallery: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesgallery
+        PagesIdProject.internationalprojectspropertiesgallery,
       ),
       units: _isAccessed(PagesIdProject.internationalprojectspropertiesunits),
     },
     [PermissionsForProject.internationalprojectspropertiespayment]: {
       edit: _isAccessed(
-        PagesIdProject.internationalprojectspropertiespaymentedit
+        PagesIdProject.internationalprojectspropertiespaymentedit,
       ),
       delete: _isAccessed(
-        PagesIdProject.internationalprojectspropertiespaymentdelete
+        PagesIdProject.internationalprojectspropertiespaymentdelete,
       ),
       add: _isAccessed(
-        PagesIdProject.internationalprojectspropertiespaymentadd
+        PagesIdProject.internationalprojectspropertiespaymentadd,
       ),
     },
     [PermissionsForProject.internationalprojectspropertiesplans]: {
       view: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesplansview
+        PagesIdProject.internationalprojectspropertiesplansview,
       ),
       add: _isAccessed(PagesIdProject.internationalprojectspropertiesplansadd),
       delete: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesplansdelete
+        PagesIdProject.internationalprojectspropertiesplansdelete,
       ),
       edit: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesplansedit
+        PagesIdProject.internationalprojectspropertiesplansedit,
       ),
     },
     [PermissionsForProject.internationalprojectspropertiesdocuments]: {
       add: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesdocumentsadd
+        PagesIdProject.internationalprojectspropertiesdocumentsadd,
       ),
       view: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesdocumentsview
+        PagesIdProject.internationalprojectspropertiesdocumentsview,
       ),
       edit: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesdocumentsedit
+        PagesIdProject.internationalprojectspropertiesdocumentsedit,
       ),
       delete: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesdocumentsdelete
+        PagesIdProject.internationalprojectspropertiesdocumentsdelete,
       ),
     },
     [PermissionsForProject.internationalprojectspropertiesunittype]: {
       add: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunittypeadd
+        PagesIdProject.internationalprojectspropertiesunittypeadd,
       ),
       edit: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunittypeedit
+        PagesIdProject.internationalprojectspropertiesunittypeedit,
       ),
       delete: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunittypedelete
+        PagesIdProject.internationalprojectspropertiesunittypedelete,
       ),
     },
     [PermissionsForProject.internationalprojectspropertiesgallery]: {
       add: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesgalleryadd
+        PagesIdProject.internationalprojectspropertiesgalleryadd,
       ),
       edit: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesgalleryedit
+        PagesIdProject.internationalprojectspropertiesgalleryedit,
       ),
       delete: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesgallerydelete
+        PagesIdProject.internationalprojectspropertiesgallerydelete,
       ),
       import: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesgalleryimport
+        PagesIdProject.internationalprojectspropertiesgalleryimport,
       ),
     },
     [PermissionsForProject.internationalprojectspropertiesunits]: {
       add: _isAccessed(PagesIdProject.internationalprojectspropertiesunitsadd),
       documents: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsdocuments
+        PagesIdProject.internationalprojectspropertiesunitsdocuments,
       ),
       gallery: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsgallery
+        PagesIdProject.internationalprojectspropertiesunitsgallery,
       ),
       payment: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitspayment
+        PagesIdProject.internationalprojectspropertiesunitspayment,
       ),
       plans: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsplans
+        PagesIdProject.internationalprojectspropertiesunitsplans,
       ),
     },
     [PermissionsForProject.internationalprojectspropertiesunitsdocuments]: {
       add: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsdocumentsadd
+        PagesIdProject.internationalprojectspropertiesunitsdocumentsadd,
       ),
       view: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsdocumentsview
+        PagesIdProject.internationalprojectspropertiesunitsdocumentsview,
       ),
       edit: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsdocumentsedit
+        PagesIdProject.internationalprojectspropertiesunitsdocumentsedit,
       ),
       delete: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsdocumentsdelete
+        PagesIdProject.internationalprojectspropertiesunitsdocumentsdelete,
       ),
     },
     [PermissionsForProject.internationalprojectspropertiesunitsgallery]: {
       add: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsgalleryadd
+        PagesIdProject.internationalprojectspropertiesunitsgalleryadd,
       ),
       edit: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsgalleryedit
+        PagesIdProject.internationalprojectspropertiesunitsgalleryedit,
       ),
       delete: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsgallerydelete
+        PagesIdProject.internationalprojectspropertiesunitsgallerydelete,
       ),
       import: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsgalleryimport
+        PagesIdProject.internationalprojectspropertiesunitsgalleryimport,
       ),
     },
     [PermissionsForProject.internationalprojectspropertiesunitspayment]: {
       add: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitspaymentadd
+        PagesIdProject.internationalprojectspropertiesunitspaymentadd,
       ),
       edit: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitspaymentedit
+        PagesIdProject.internationalprojectspropertiesunitspaymentedit,
       ),
       delete: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitspaymentdelete
+        PagesIdProject.internationalprojectspropertiesunitspaymentdelete,
       ),
     },
     [PermissionsForProject.internationalprojectspropertiesunitsplans]: {
       add: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsplansadd
+        PagesIdProject.internationalprojectspropertiesunitsplansadd,
       ),
       edit: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsplansedit
+        PagesIdProject.internationalprojectspropertiesunitsplansedit,
       ),
       delete: _isAccessed(
-        PagesIdProject.internationalprojectspropertiesunitsplansdelete
+        PagesIdProject.internationalprojectspropertiesunitsplansdelete,
       ),
     },
   };

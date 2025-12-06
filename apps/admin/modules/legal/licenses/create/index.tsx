@@ -1,25 +1,25 @@
-"use client";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+'use client';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useParams, useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 
-import FormActions from "@/components/FormActions";
-import { useCrmPageHeader } from "@/components/CrmPageHeader/helper";
-import { SectionLayout } from "@/components/SectionLayout/SectionLayout";
-import SectionsAccordion from "@/components/SectionsAccordion";
-import { AlertBar, AlertBarProps } from "@/components/AlertBar";
-import CreateLicense from "./create-license";
-import { createLicenceHandler } from "./create-license/handlers";
+import FormActions from '@/components/FormActions';
+import { useCrmPageHeader } from '@/components/CrmPageHeader/helper';
+import { SectionLayout } from '@/components/SectionLayout/SectionLayout';
+import SectionsAccordion from '@/components/SectionsAccordion';
+import { AlertBar, AlertBarProps } from '@/components/AlertBar';
+import CreateLicense from './create-license';
+import { createLicenceHandler } from './create-license/handlers';
 
-import { consoleLog } from "@/utils/console-log";
+import { consoleLog } from '@/utils/console-log';
 
-import { CountryType } from "@/types/places";
-import { ConstantsTypes } from "@/types/shared";
+import { CountryType } from '@/types/places';
+import { ConstantsTypes } from '@/types/shared';
 import {
   CreateLicenseSchema,
   CreateLicenseSchemaFormValues,
-} from "../../validator/license";
+} from '../../validator/license';
 
 export interface CreateLicenceContainerProps {
   formGet: {
@@ -31,15 +31,15 @@ export interface CreateLicenceContainerProps {
 
 const CreateLicenseContainer = ({ formGet }: CreateLicenceContainerProps) => {
   const [alertBarProps, setAlertBarProps] = useState<AlertBarProps>({
-    message: "",
-    severity: "info",
+    message: '',
+    severity: 'info',
   });
   const router = useRouter();
   const { entityId } = useParams() as { entityId: string };
   const isEdit = formGet?.licenceData;
   const form = useForm<CreateLicenseSchemaFormValues>({
     resolver: zodResolver(CreateLicenseSchema),
-    mode: "all",
+    mode: 'all',
     defaultValues: {
       ...(isEdit ?? {}),
     },
@@ -51,18 +51,18 @@ const CreateLicenseContainer = ({ formGet }: CreateLicenceContainerProps) => {
       dirty: form?.formState
         ?.dirtyFields as unknown as CreateLicenseSchemaFormValues,
       cb: (res) => {
-        if (res?.Message === "success") {
+        if (res?.Message === 'success') {
           setAlertBarProps({
-            message: isEdit ? "Updated successfully" : "Created successfully",
-            severity: "success",
+            message: isEdit ? 'Updated successfully' : 'Created successfully',
+            severity: 'success',
           });
 
-          router.push("/dashboard/settings/legal/licenses");
+          router.push('/dashboard/settings/legal/licenses');
         } else
           setAlertBarProps({
             message:
-              res?.error ?? (isEdit ? "Failed to update" : "Failed to create"),
-            severity: "error",
+              res?.error ?? (isEdit ? 'Failed to update' : 'Failed to create'),
+            severity: 'error',
           });
       },
       entityId,
@@ -70,30 +70,30 @@ const CreateLicenseContainer = ({ formGet }: CreateLicenceContainerProps) => {
   };
 
   const onError = (err: unknown) => {
-    consoleLog("Missing fields ===== ", err);
+    consoleLog('Missing fields ===== ', err);
 
     setAlertBarProps({
-      message: "Missing fields",
-      severity: "warning",
+      message: 'Missing fields',
+      severity: 'warning',
     });
   };
 
   useCrmPageHeader({
     breadcrumbs: [
       {
-        label: "Legal Settings",
-        link: "/dashboard/settings/legal/",
+        label: 'Legal Settings',
+        link: '/dashboard/settings/legal/',
       },
       {
-        label: "Company License",
+        label: 'Company License',
         link: `/dashboard/settings/legal/licenses`,
       },
       {
-        label: "Create License",
-        link: "#",
+        label: 'Create License',
+        link: '#',
       },
     ],
-    pageHeader: "Company License",
+    pageHeader: 'Company License',
   });
 
   return (
@@ -102,18 +102,18 @@ const CreateLicenseContainer = ({ formGet }: CreateLicenceContainerProps) => {
 
       <FormProvider {...form}>
         <form
-          className="form"
+          className='form'
           onSubmit={form.handleSubmit(onSubmit, onError)}
           onReset={() => form.reset()}
         >
           {/* Contract Information */}
           <SectionLayout
             header={{
-              title: "Create License",
-              link: "/dashboard/settings/legal/licenses",
+              title: 'Create License',
+              link: '/dashboard/settings/legal/licenses',
             }}
           >
-            <SectionsAccordion header="License Information">
+            <SectionsAccordion header='License Information'>
               <CreateLicense formGet={formGet} isEdit={!!isEdit} />
             </SectionsAccordion>
           </SectionLayout>
@@ -125,7 +125,7 @@ const CreateLicenseContainer = ({ formGet }: CreateLicenceContainerProps) => {
 
       {/* Ready to render Alertbar */}
       <AlertBar
-        onClose={() => setAlertBarProps({ message: "" })}
+        onClose={() => setAlertBarProps({ message: '' })}
         {...alertBarProps}
       />
     </>

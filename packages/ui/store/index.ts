@@ -1,8 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 
-import crmHeaderSliceReducer from "./slices/crmHeaderSlice";
-import userReducer from "./slices/userSlice";
-import notificationSlice from "./slices/notification";
+import crmHeaderSliceReducer from './slices/crmHeaderSlice';
+import userReducer from './slices/userSlice';
+import notificationSlice from './slices/notification';
 
 export const store = configureStore({
   reducer: {

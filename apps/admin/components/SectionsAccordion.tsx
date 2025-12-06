@@ -30,7 +30,7 @@ const SectionsAccordion = ({
       {
         root: null,
         threshold: 0.5,
-      }
+      },
     );
 
     if (sectionElement) {

@@ -1,4 +1,4 @@
-import { ConstantsTypes } from "@/types/shared";
+import { ConstantsTypes } from '@/types/shared';
 
 export interface LicensesTypes {
   id: 7;

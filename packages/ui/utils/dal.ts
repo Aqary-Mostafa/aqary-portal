@@ -1,14 +1,14 @@
-"use server";
+'use server';
 
-import { cookies } from "next/headers";
-import { cache } from "react";
+import { cookies } from 'next/headers';
+import { cache } from 'react';
 
-import { getUserData } from "../api/user";
-import { consoleLog } from "../utils/console-log";
+import { getUserData } from '../api/user';
+import { consoleLog } from '../utils/console-log';
 
 export const verifySession = cache(async () => {
-  const session = (await cookies()).get("aqaryUser")?.value;
-  const userData = session ? JSON.parse((session as string) || "") : "";
+  const session = (await cookies()).get('aqaryUser')?.value;
+  const userData = session ? JSON.parse((session as string) || '') : '';
 
   if (!session) {
     return { isAuth: false, aqaryUser: null };
@@ -26,7 +26,7 @@ export const getUser = cache(async (): Promise<UserTypes | null> => {
 
     return user;
   } catch (error) {
-    consoleLog("Failed to fetch user");
+    consoleLog('Failed to fetch user');
     return null;
   }
 });

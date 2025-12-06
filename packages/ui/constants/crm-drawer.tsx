@@ -1,19 +1,19 @@
-import { GoReport } from "react-icons/go";
-import { TbGitBranch } from "react-icons/tb";
+import { GoReport } from 'react-icons/go';
+import { TbGitBranch } from 'react-icons/tb';
 
 const mainMenu = {
   head: {
     id: 0,
-    label: "Main Menu",
+    label: 'Main Menu',
     icon: <TbGitBranch />,
-    url: "/crm/lead_contact",
+    url: '/crm/lead_contact',
   },
   list: [
     {
       id: 0,
-      label: "Reports",
+      label: 'Reports',
       icon: <GoReport />,
-      url: "/crm/leads/reports",
+      url: '/crm/leads/reports',
     },
   ],
 };

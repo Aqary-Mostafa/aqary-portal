@@ -1,14 +1,14 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { AppDispatch } from "@/store";
+import { AppDispatch } from '@/store';
 import {
   CrmHeaderSlice,
   setBreadCrumbs,
   setPageHeader,
-} from "@/store/slices/crmHeaderSlice";
+} from '@/store/slices/crmHeaderSlice';
 
-import { V2_DEMO } from "@/constants";
+import { V2_DEMO } from '@/constants';
 
 export const useCrmPageHeader = ({
   breadcrumbs,

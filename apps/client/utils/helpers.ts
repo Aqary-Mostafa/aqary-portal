@@ -1,18 +1,18 @@
-import { FileTypes } from "@/constants/file-types";
+import { FileTypes } from '@/constants/file-types';
 
-import { PermissionType } from "@/types/permissions";
+import { PermissionType } from '@/types/permissions';
 
 export const getGreeting = () => {
   const hour = new Date().getHours();
 
   if (hour >= 5 && hour < 12) {
-    return "Good Morning";
+    return 'Good Morning';
   } else if (hour >= 12 && hour < 17) {
-    return "Good Afternoon";
+    return 'Good Afternoon';
   } else if (hour >= 17 && hour < 20) {
-    return "Good Evening";
+    return 'Good Evening';
   } else {
-    return "Good Night";
+    return 'Good Night';
   }
 };
 
@@ -20,10 +20,10 @@ export const getGreeting = () => {
 export function formatDate(isoString: string | null) {
   if (!isoString) return;
   const date = new Date(isoString);
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
   });
 }
 
@@ -32,9 +32,9 @@ export function getTimeFromIOS(isoString: string | null) {
   if (!isoString) return;
   const dateObj = new Date(isoString);
 
-  const time = dateObj.toLocaleTimeString("en-US", {
-    hour: "2-digit",
-    minute: "2-digit",
+  const time = dateObj.toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
     hour12: true,
   });
   return time;
@@ -45,12 +45,12 @@ export function getTimeFromIOS(isoString: string | null) {
 export function GetFileType(url: string) {
   if (url) {
     // Extract the file name from the URL
-    const fileName: string = url.split("/").pop() || "";
+    const fileName: string = url.split('/').pop() || '';
     // Get the file extension
-    const fileExtension = fileName ? fileName?.split(".").pop() : [];
-    const extension = fileExtension || "";
+    const fileExtension = fileName ? fileName?.split('.').pop() : [];
+    const extension = fileExtension || '';
 
-    return FileTypes[extension as keyof typeof FileTypes] || "unknown";
+    return FileTypes[extension as keyof typeof FileTypes] || 'unknown';
   }
   return null;
 }
@@ -58,16 +58,16 @@ export function GetFileType(url: string) {
 //? Function -> Convery Query Params into String
 
 export function ConverParamIntoString<T>(params: T) {
-  let queryParam = "?";
+  let queryParam = '?';
   Object.entries(params as { [key: string]: string }).forEach(
     ([key, value], index) => {
       if (value) {
         if (index > 0) {
-          queryParam += "&";
+          queryParam += '&';
         }
         queryParam += `${key}=${encodeURIComponent(value as string)}`;
       }
-    }
+    },
   );
   return queryParam;
 }
@@ -176,10 +176,10 @@ export function getAllNestedPermissions(item: PermissionType) {
 export const extractPhoneNumber = (phoneString?: string) => {
   if (!phoneString) return;
 
-  const parts = phoneString?.split("-");
+  const parts = phoneString?.split('-');
 
-  const key = parseInt(parts?.[0]?.trim() ?? "", 10);
-  const number = parseInt(parts?.[1]?.trim() ?? "", 10);
+  const key = parseInt(parts?.[0]?.trim() ?? '', 10);
+  const number = parseInt(parts?.[1]?.trim() ?? '', 10);
 
   return {
     key: key || NaN,
@@ -196,18 +196,18 @@ export const isValidUrl = (urlString: string) => {
   } catch (e) {
     return false;
   }
-  return url.protocol === "http:" || url.protocol === "https:";
+  return url.protocol === 'http:' || url.protocol === 'https:';
 };
 
 // ? Iban validation function
 export const validateIban = (iban: string): boolean => {
-  iban = iban.replace(/\s+/g, "").toUpperCase();
+  iban = iban.replace(/\s+/g, '').toUpperCase();
   if (!/^[A-Z]{2}[0-9]{2}[A-Z0-9]+$/.test(iban)) {
     return false;
   }
   const rearrangedIban = iban.slice(4) + iban.slice(0, 4);
   const ibanAsNumbers = rearrangedIban
-    .split("")
+    .split('')
     .map((char) => {
       if (/[A-Z]/.test(char)) {
         return char.charCodeAt(0) - 55;
@@ -215,7 +215,7 @@ export const validateIban = (iban: string): boolean => {
         return char;
       }
     })
-    .join("");
+    .join('');
   let remainder = ibanAsNumbers;
   while (remainder.length > 2) {
     const block = remainder.slice(0, 9);

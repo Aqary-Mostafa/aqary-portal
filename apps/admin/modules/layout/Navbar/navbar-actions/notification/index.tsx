@@ -1,24 +1,24 @@
-import { Badge, IconButton, Popover } from "@mui/material";
-import React from "react";
-import { IoIosNotificationsOutline } from "react-icons/io";
-import { useSelector } from "react-redux";
+import { Badge, IconButton, Popover } from '@mui/material';
+import React from 'react';
+import { IoIosNotificationsOutline } from 'react-icons/io';
+import { useSelector } from 'react-redux';
 
-import NotificationContent from "./notification-content";
+import NotificationContent from './notification-content';
 
-import { RootState } from "@/store";
+import { RootState } from '@/store';
 
-import { V2_DEMO } from "@/constants";
+import { V2_DEMO } from '@/constants';
 
 export interface NotificationType {
   label?: string;
   color?:
-    | "default"
-    | "primary"
-    | "secondary"
-    | "error"
-    | "warning"
-    | "info"
-    | "success";
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'error'
+    | 'warning'
+    | 'info'
+    | 'success';
   image_name?: string;
   mail?: string;
 }
@@ -38,17 +38,17 @@ const Notification = () => {
   // const [isNewMessage] = useState(false);
   // const [notificationData] = React.useState<NotifyData[]>([]);
   const open = Boolean(anchorEl);
-  const id = open ? "simple-popper" : undefined;
+  const id = open ? 'simple-popper' : undefined;
   const { isNew } = useSelector((state: RootState) => state.notification);
 
   return (
     <>
       <IconButton
-        className={`action-btn ${V2_DEMO() ? "v2" : ""}`}
+        className={`action-btn ${V2_DEMO() ? 'v2' : ''}`}
         onClick={(e) => setAnchorEl(anchorEl ? null : e.currentTarget)}
       >
         {/* <Badge badgeContent={notificationData?.length} color='primary'> */}
-        <Badge variant="dot" invisible={!isNew} color="primary">
+        <Badge variant='dot' invisible={!isNew} color='primary'>
           <IoIosNotificationsOutline />
         </Badge>
       </IconButton>
@@ -57,10 +57,10 @@ const Notification = () => {
         open={open}
         anchorEl={anchorEl}
         onClose={() => setAnchorEl(null)}
-        className="navbar-popper notifications"
+        className='navbar-popper notifications'
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "right",
+          vertical: 'bottom',
+          horizontal: 'right',
         }}
       >
         <NotificationContent />

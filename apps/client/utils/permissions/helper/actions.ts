@@ -1,5 +1,5 @@
-import { _projectActions } from "./actions/project";
-import { PagesIdTypes, PermissionsActions, PermissionsForType } from "./enums";
+import { _projectActions } from './actions/project';
+import { PagesIdTypes, PermissionsActions, PermissionsForType } from './enums';
 
 const defaultWithoutPermetions = true; //! Show, if not have permition id only
 
@@ -11,7 +11,7 @@ export const permissionsActions = ({
   [key in PermissionsForType]: PermissionsActions;
 } => {
   const _isAccessed = (pg?: PagesIdTypes) => {
-    const isBool = typeof idList === "boolean";
+    const isBool = typeof idList === 'boolean';
     const isArr = Array.isArray(idList);
 
     return (

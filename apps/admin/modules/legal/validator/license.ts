@@ -1,9 +1,9 @@
-import { z } from "zod";
+import { z } from 'zod';
 
-import { ContantsValidate } from "@/validator/global";
+import { ContantsValidate } from '@/validator/global';
 
 export const CreateLicenseSchema = z.object({
-  license_name: z.string().min(1, { message: "License name is required." }),
+  license_name: z.string().min(1, { message: 'License name is required.' }),
   license_name_ar: z.string().optional(),
   country: ContantsValidate.optional(),
   state: ContantsValidate.optional(),

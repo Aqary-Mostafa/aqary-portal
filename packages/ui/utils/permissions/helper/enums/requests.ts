@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-duplicate-enum-values */
 // ! Backend say it will be same forever, but i know it will change in the future.
 // ! order is very important for debugging
 

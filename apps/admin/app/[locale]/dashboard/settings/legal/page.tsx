@@ -1,4 +1,4 @@
-import LegalSettingContainer from "@/modules/legal";
+import LegalSettingContainer from '@/modules/legal';
 
 const LegalSetting = () => {
   return <LegalSettingContainer />;

@@ -1,14 +1,14 @@
-import { getApiResponse } from "@/utils/get-api-response";
+import { getApiResponse } from '@/utils/get-api-response';
 
-import { ConstantsTypes } from "@/types/shared";
+import { ConstantsTypes } from '@/types/shared';
 import {
   CityType,
   CommunityType,
   CountryType,
   StateType,
   SubCommunityType,
-} from "@/types/places";
-import { LocationItems } from "@/types/global";
+} from '@/types/places';
+import { LocationItems } from '@/types/global';
 
 const getAllCountries = (revalidate?: number) =>
   getApiResponse<{
@@ -76,10 +76,10 @@ const getsubcommunitiesbycommunity = ({ id }: { id?: string }) =>
   });
 
 const getLocationsBySearchText = ({
-  search = "",
+  search = '',
   countryId = 1,
-  page = "1",
-  pageSize = "10",
+  page = '1',
+  pageSize = '10',
 }: {
   search: string;
   countryId?: number;

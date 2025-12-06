@@ -1,15 +1,15 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { THEME_COLORS } from "@/theme/colors";
-import { loadState, saveState } from "@/utils/localStorage";
+import { THEME_COLORS } from '@/theme/colors';
+import { loadState, saveState } from '@/utils/localStorage';
 
 export interface User {
   drawer: {
     isOpen: boolean;
   };
-  placement: "RTL" | "LTR";
+  placement: 'RTL' | 'LTR';
   lang: string;
-  theme: "light" | "dark";
+  theme: 'light' | 'dark';
   colors: {
     primary: {
       main: string;
@@ -22,42 +22,42 @@ export interface User {
   _permissions?: number[] | boolean;
 }
 
-const initialState = loadState<User>("user") || {
+const initialState = loadState<User>('user') || {
   drawer: {
     isOpen: true,
   },
-  placement: "LTR",
-  lang: "en",
-  theme: "light",
+  placement: 'LTR',
+  lang: 'en',
+  theme: 'light',
   colors: THEME_COLORS[0],
   _permissions: [],
 };
 
 const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   reducers: {
     toggleSidebar: (state) => {
       state.drawer.isOpen = !state.drawer.isOpen;
-      saveState("user", state);
+      saveState('user', state);
     },
     setUserPermissions: (
       state,
-      action: PayloadAction<User["_permissions"]>
+      action: PayloadAction<User['_permissions']>,
     ) => {
       state._permissions = action.payload;
     },
-    setTheme: (state, action: PayloadAction<User["theme"]>) => {
+    setTheme: (state, action: PayloadAction<User['theme']>) => {
       state.theme = action.payload;
-      saveState("user", state);
+      saveState('user', state);
     },
-    setColors: (state, action: PayloadAction<User["colors"]>) => {
+    setColors: (state, action: PayloadAction<User['colors']>) => {
       state.colors = action.payload;
-      saveState("user", state);
+      saveState('user', state);
     },
-    setLanguage: (state, action: PayloadAction<User["lang"]>) => {
+    setLanguage: (state, action: PayloadAction<User['lang']>) => {
       state.lang = action.payload;
-      saveState("user", state);
+      saveState('user', state);
     },
   },
 });
