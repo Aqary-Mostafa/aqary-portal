@@ -1,3 +1,5 @@
+import HomeModule from '@/modules/pages/home';
+
 export default function Home() {
-  return <div>admin</div>;
+  return <HomeModule />;
 }
