@@ -1,8 +1,4 @@
 {
-  "apps/client/**/*.{js,jsx,ts,tsx}": [
-    "eslint --max-warnings 0 --config ./apps/client/eslint.config.js"
-  ],
-  "packages/ui/**/*.{js,jsx,ts,tsx}": [
-    "eslint --max-warnings 0 --config ./packages/ui/eslint.config.js"
-  ]
+  "*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write"],
+  "*.{md,css,scss,json}": ["prettier --write"]
 }
