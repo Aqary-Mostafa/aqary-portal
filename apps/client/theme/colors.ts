@@ -26,7 +26,7 @@ export const colors = {
 export const THEME_COLORS = [
   {
     id: 1,
-    primary: { main: '#6C96CF', light: '#DAE7F9' },
+    primary: { main: '#4880FF', light: '#3A71ED', dark: '#3A71ED' },
     action: { disabledBackground: '#eef2f6' },
   },
   {

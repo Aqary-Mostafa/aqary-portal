@@ -284,7 +284,8 @@ const baseTheme = createTheme({
           textTransform: 'capitalize',
           display: 'inline-block',
           padding: '8px 19px',
-          borderRadius: '4px',
+          borderRadius: '12px',
+          minHeight: '44px',
         },
       },
     },
@@ -436,9 +437,9 @@ export const lightTheme = createTheme(baseTheme, {
     ...colors.light,
     mode: 'light',
     primary: {
-      main: '#6C96CF',
+      main: '#4880FF',
       light: '#DAE7F9',
-      dark: '#DAE7F9',
+      dark: '#3A71ED',
     },
     info: {
       main: '#3565A3',

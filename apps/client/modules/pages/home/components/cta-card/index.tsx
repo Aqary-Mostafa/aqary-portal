@@ -3,6 +3,7 @@ import { CtaCardContainer } from './styled';
 import Image from 'next/image';
 import { JSX } from 'react';
 import Link from 'next/link';
+import { MdArrowForward } from 'react-icons/md';
 
 export interface CtaCardTypes {
   link: string;
@@ -33,7 +34,7 @@ const CtaCard = ({ card }: CtaCardProps) => {
         </Typography>
         <Link href={card?.link}>
           <Button fullWidth variant='contained' color='primary'>
-            {card?.btnLabel}
+            {card?.btnLabel} <MdArrowForward />
           </Button>
         </Link>
       </Box>

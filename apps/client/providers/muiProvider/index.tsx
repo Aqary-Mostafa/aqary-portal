@@ -27,7 +27,7 @@ const cairo = Cairo({
 });
 
 const MuiProvider = ({ children }: { children: ReactNode }) => {
-  const { theme: mode, colors } = useSelector((state: RootState) => state.user);
+  const { theme: mode } = useSelector((state: RootState) => state.user);
   const { locale } = useParams();
 
   const defaultTheme = mode === 'dark' ? darkTheme : lightTheme;
@@ -37,11 +37,11 @@ const MuiProvider = ({ children }: { children: ReactNode }) => {
       ...defaultTheme.palette,
       primary: {
         ...defaultTheme.palette.primary,
-        ...colors?.primary,
+        // ...colors?.primary,
       },
       action: {
         ...defaultTheme.palette.action,
-        ...colors?.action,
+        // ...colors?.action,
       },
     },
     direction: locale === 'ar' ? 'rtl' : 'ltr',

@@ -58,4 +58,14 @@ export const CtaCardContainer = styled(Box)<BoxProps>(({ theme }) => ({
       fontSize: '16px',
     },
   },
+
+  '& a': {
+    textDecoration: 'none',
+  },
+
+  '& .MuiButtonBase-root': {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+  },
 })) as typeof Box;
