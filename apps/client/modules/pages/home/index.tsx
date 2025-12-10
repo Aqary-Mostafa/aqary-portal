@@ -1,5 +1,5 @@
 'use client';
-import { Box, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import { HomePageContainer } from './styled';
 import HomeCompanyIntro from './components/intro';
 import HomePageFeaturs from './components/featurs';

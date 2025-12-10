@@ -45,6 +45,7 @@ const baseTheme = createTheme({
         root: {
           // minWidth: '200px',
           borderRadius: '12px',
+          backgroundColor: '#F8F9FA',
 
           '& input[type="file"]': {
             color: '#6C6C6C',
@@ -57,12 +58,12 @@ const baseTheme = createTheme({
           },
 
           '& input:-webkit-autofill': {
-            WebkitBoxShadow: '0 0 0 1000px white inset',
+            WebkitBoxShadow: '0 0 0 1000px #F8F9FA inset',
             WebkitTextFillColor: 'inherit',
           },
         },
         notchedOutline: {
-          border: '1px solid #eeeeee',
+          border: '1px solid #F8F9FA',
         },
       },
     },

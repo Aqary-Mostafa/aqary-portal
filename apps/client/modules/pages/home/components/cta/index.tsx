@@ -16,7 +16,7 @@ export default HomeCta;
 
 const CTADATA = [
   {
-    link: '/login',
+    link: '/auth/login',
     label: 'Sign In',
     description:
       'Already have an account? Sign in to access your dashboard and continue managing your properties.',
