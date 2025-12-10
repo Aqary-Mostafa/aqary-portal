@@ -11,26 +11,26 @@ export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const locale = request.nextUrl.locale || routing?.defaultLocale;
 
-  const isAuthenticated = !!request.cookies.get('aqaryUser');
-  const isDashboardRoute = pathname.startsWith(`/${locale}/dashboard`);
-  const isAuthRoute = pathname === `/${locale}/login`;
+  // const isAuthenticated = !!request.cookies.get('aqaryUser');
+  // const isDashboardRoute = pathname.startsWith(`/${locale}/dashboard`);
+  // const isAuthRoute = pathname === `/${locale}/login`;
 
   if (pathname === '/') {
     return NextResponse.redirect(new URL(`/${locale}`, request.url));
   }
 
-  if (isDashboardRoute && !isAuthenticated) {
-    const url = request.nextUrl.clone();
-    url.searchParams.set('next', url.pathname);
-    url.pathname = `/${locale}/login`;
-    return NextResponse.redirect(url);
-  }
+  // if (isDashboardRoute && !isAuthenticated) {
+  //   const url = request.nextUrl.clone();
+  //   url.searchParams.set('next', url.pathname);
+  //   url.pathname = `/${locale}/login`;
+  //   return NextResponse.redirect(url);
+  // }
 
-  if (isAuthenticated && isAuthRoute) {
-    const url = request.nextUrl.clone();
-    url.pathname = `/${locale}/dashboard/`;
-    return NextResponse.redirect(url);
-  }
+  // if (isAuthenticated && isAuthRoute) {
+  //   const url = request.nextUrl.clone();
+  //   url.pathname = `/${locale}/dashboard/`;
+  //   return NextResponse.redirect(url);
+  // }
 
   return response;
 }

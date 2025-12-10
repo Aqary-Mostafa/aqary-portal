@@ -1,9 +1,7 @@
 import { Metadata } from 'next';
 import * as React from 'react';
-// import DashboardLayouts from "@repo/ui/dashboard-layouts";
 import DashboardLayouts from '@repo/ui/dashboard-layouts';
 
-import Layout from '@/modules/layout';
 import { SITE_CONFIG } from '@/constants';
 
 export const metadata: Metadata = {

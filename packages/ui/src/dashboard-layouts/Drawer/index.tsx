@@ -80,6 +80,7 @@ const Container = styled(MuiDrawer, {
   flexShrink: 0,
   whiteSpace: 'nowrap',
   boxSizing: 'border-box',
+
   ...(open && {
     ...openedMixin(),
     '& .MuiDrawer-paper': openedMixin(),
@@ -90,9 +91,9 @@ const Container = styled(MuiDrawer, {
   }),
 
   '& .MuiPaper-root': {
-    padding: open ? '0 16px' : '0',
+    padding: '20px 8px',
     border: 'unset',
-    marginTop: '20px',
     zIndex: 1199,
+    paddingTop: '',
   },
 }));

@@ -1,33 +1,21 @@
 'use client';
 import { GridLegacy } from '@mui/material';
 
-import { useCrmPageHeader } from '@/components/CrmPageHeader/helper';
 import { SectionLayout } from '@/components/SectionLayout/SectionLayout';
 import TabLink from '@/components/TabLink';
+import PageHeader from '@repo/ui/page-header';
 
 const LegalSettingContainer = () => {
-  useCrmPageHeader({
-    breadcrumbs: [
-      {
-        label: 'Legal setting',
-        link: '/dashboard/settings/legal/',
-      },
-    ],
-    pageHeader: 'Legal setting',
-  });
-
   return (
     <>
       {/* The page header */}
-      {/* <PageHeader
-        header='Legal setting'
-        links={[
-          {
-            lable: 'Legal setting',
-            link: `#`,
-          },
+      <PageHeader
+        pageHeader='Accounts'
+        breadcrumbs={[
+          { label: 'Pages', link: '#' },
+          { label: 'Accounts', link: '#' },
         ]}
-      /> */}
+      />
 
       {/* Table section */}
       <SectionLayout>

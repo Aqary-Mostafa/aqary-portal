@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 
 import FormActions from '@/components/FormActions';
-import { useCrmPageHeader } from '@/components/CrmPageHeader/helper';
 import { SectionLayout } from '@/components/SectionLayout/SectionLayout';
 import SectionsAccordion from '@/components/SectionsAccordion';
 import { AlertBar, AlertBarProps } from '@/components/AlertBar';
@@ -20,6 +19,7 @@ import {
   CreateLicenseSchema,
   CreateLicenseSchemaFormValues,
 } from '../../validator/license';
+import PageHeader from '@repo/ui/page-header';
 
 export interface CreateLicenceContainerProps {
   formGet: {
@@ -78,27 +78,16 @@ const CreateLicenseContainer = ({ formGet }: CreateLicenceContainerProps) => {
     });
   };
 
-  useCrmPageHeader({
-    breadcrumbs: [
-      {
-        label: 'Legal Settings',
-        link: '/dashboard/settings/legal/',
-      },
-      {
-        label: 'Company License',
-        link: `/dashboard/settings/legal/licenses`,
-      },
-      {
-        label: 'Create License',
-        link: '#',
-      },
-    ],
-    pageHeader: 'Company License',
-  });
-
   return (
     <>
       {/* The page header */}
+      <PageHeader
+        pageHeader='Accounts'
+        breadcrumbs={[
+          { label: 'Pages', link: '#' },
+          { label: 'Accounts', link: '#' },
+        ]}
+      />
 
       <FormProvider {...form}>
         <form

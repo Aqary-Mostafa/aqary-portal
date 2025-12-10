@@ -28,31 +28,16 @@ export const HIDE_DEBUG_ARY = [
   // 'getApiResponse'
 ];
 
-export const CONFIGS: { [key in DashboardTypeEnums]: ConfigTypes } = {
-  [DashboardTypeEnums.portal]: {
-    title: 'Aqary International Group Portal',
-    description: 'Manage your realestate from here',
-    url: 'https://dashboard.aqaryint.com/',
-    drawer: [...INITIAL_LIST],
-    // drawer: INITIAL_LIST,
-    // drawer: PORTAL_LIST,
-    logo: '/logo.png',
-    logo_ar: '/logo-ar.png',
-    logo_white: '/logo-ar-white.png',
-    logo_white_ar: '/logo-ar-white.png',
-    letter_logo: '/a-logo.png',
-  },
-  [DashboardTypeEnums.crm]: {
-    title: 'Aqary International Group Crm',
-    description: 'Manage your realestate from here',
-    url: 'https://dashboard.aqaryint.com/',
-    drawer: INITIAL_LIST,
-    logo: '/logo.png',
-    logo_ar: '/logo-ar.png',
-    logo_white: '/logo-ar-white.png',
-    logo_white_ar: '/logo-ar-white.png',
-    letter_logo: '/a-logo.png',
-  },
+export const CONFIGS: ConfigTypes = {
+  title: 'Aqary International Group Portal',
+  description: 'Manage your realestate from here',
+  url: 'https://dashboard.aqaryint.com/',
+  drawer: [...INITIAL_LIST],
+  logo: '/logo.svg',
+  logo_ar: '/logo.svg',
+  logo_white: '/logo.svg',
+  logo_white_ar: '/logo.svg',
+  letter_logo: '/letter-logo.svg',
 };
 
 export const isCRM = process.env.NEXT_PUBLIC_TYPE === DashboardTypeEnums.crm;
@@ -60,11 +45,7 @@ export const isPortal =
   process.env.NEXT_PUBLIC_TYPE === DashboardTypeEnums.portal;
 export const dashboardType = process.env.NEXT_PUBLIC_TYPE;
 
-export const SITE_CONFIG =
-  CONFIGS[
-    (process.env.NEXT_PUBLIC_TYPE as DashboardTypeEnums) ||
-      DashboardTypeEnums.portal
-  ];
+export const SITE_CONFIG = CONFIGS;
 
 export function V2_DEMO() {
   'use client';

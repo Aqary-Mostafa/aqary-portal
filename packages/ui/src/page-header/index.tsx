@@ -12,7 +12,7 @@ export interface PageHeaderProps {
 
 const PageHeader = ({ pageHeader, breadcrumbs }: PageHeaderProps) => {
   return (
-    <Box className='crm-page-header'>
+    <Box className='page-header'>
       <Box className='page'>
         <Breadcrumbs aria-label='breadcrumb' className='breadcrumb'>
           {breadcrumbs &&
@@ -21,7 +21,12 @@ const PageHeader = ({ pageHeader, breadcrumbs }: PageHeaderProps) => {
 
               if (!x) return;
 
-              if (isLast) return <Typography key={idx}>{x?.label}</Typography>;
+              if (isLast)
+                return (
+                  <Typography key={idx} className='current'>
+                    {x?.label}
+                  </Typography>
+                );
 
               return (
                 x && (

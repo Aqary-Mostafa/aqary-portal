@@ -1,7 +1,7 @@
 import { Box, Button } from '@mui/material';
 import Link from 'next/link';
 import { CiImport } from 'react-icons/ci';
-import { LuTags } from 'react-icons/lu';
+import { LuPencilLine, LuTags } from 'react-icons/lu';
 import { PiExportLight } from 'react-icons/pi';
 
 import './title-actions.scss';
@@ -44,6 +44,7 @@ export enum TitleActionsEnums {
   import = 'import',
   tags = 'tags',
   export = 'export',
+  edit = 'edit',
 }
 
 const TITLE_ACTIONS = {
@@ -58,5 +59,9 @@ const TITLE_ACTIONS = {
   [TitleActionsEnums.export]: {
     label: 'Export',
     startIcon: <PiExportLight />,
+  },
+  [TitleActionsEnums.edit]: {
+    label: 'Edit',
+    startIcon: <LuPencilLine />,
   },
 };

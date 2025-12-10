@@ -10,8 +10,6 @@ import './layout.styles.scss';
 
 import Drawer from './Drawer';
 import Loading from '@/components/Loading';
-import Navbar from './Navbar';
-import CrmPageHeader from '@/components/CrmPageHeader';
 
 import { AppDispatch, RootState } from '@/store';
 import { setUserPermissions } from '@/store/slices/userSlice';
@@ -59,7 +57,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             minHeight: '100vh',
           }}
         >
-          <CrmPageHeader />
           {children}
         </Box>
       </Box>

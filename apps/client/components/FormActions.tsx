@@ -1,20 +1,27 @@
 import { Box, Button, ButtonProps } from '@mui/material';
-import { useTranslations } from 'next-intl';
 
 const FormActions = ({
   submitButtonProps,
   steper,
+  actions,
 }: {
   submitButtonProps?: ButtonProps;
   steper?: {
     submitWhen?: boolean;
     onNext?: () => void;
   };
-}) => {
-  const t = useTranslations('form-actions');
 
+  actions?: {
+    clear?: {
+      props?: ButtonProps;
+    };
+  };
+}) => {
   return (
     <Box className='form-actions'>
+      <Button type='reset' variant='outlined' {...actions?.clear?.props}>
+        {actions?.clear?.props?.children || 'clear'}
+      </Button>
       {steper && !steper?.submitWhen ? (
         <Button
           variant='contained'
@@ -28,12 +35,9 @@ const FormActions = ({
         </Button>
       ) : (
         <Button type='submit' variant='contained' {...submitButtonProps}>
-          {t('submit')}
+          submit
         </Button>
       )}
-      <Button type='reset' variant='outlined'>
-        {t('clear')}
-      </Button>
     </Box>
   );
 };
