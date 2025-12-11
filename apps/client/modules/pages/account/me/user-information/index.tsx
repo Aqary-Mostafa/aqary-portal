@@ -1,14 +1,11 @@
 import { TitleActionsEnums } from '@/components/SectionLayout/TitleActions';
 import { SectionLayout } from '@/components/SectionLayout/SectionLayout';
 import {
-  Box,
-  Chip,
   FormControl,
   FormHelperText,
   FormLabel,
   Grid,
   TextField,
-  Typography,
 } from '@mui/material';
 import { MdOutlineMail } from 'react-icons/md';
 import { FiPhone } from 'react-icons/fi';
@@ -22,7 +19,8 @@ import {
 } from '../validations';
 import CountryCodesDropdown from '@repo/ui/CountryCodesDropdown';
 import FormActions from '@/components/FormActions';
-import { consoleLog } from '@/utils/console-log';
+
+import IconLabelValue from '@repo/ui/icon-label-value';
 
 const UserInformation = () => {
   const [current, setCurrent] = useState('view');
@@ -266,11 +264,7 @@ const View = () => {
     <Grid container spacing={3}>
       {INFO_DATA?.map((x, idx) => (
         <Grid key={idx} size={{ xs: 12 }}>
-          <Box className='user-item'>
-            <Chip label={x?.icon} />
-            <Typography className='user-item__label'>{x?.label}</Typography>:
-            <Typography>{x?.value}</Typography>
-          </Box>
+          <IconLabelValue icon={x?.icon} label={x?.label} value={x?.value} />
         </Grid>
       ))}
     </Grid>
