@@ -1,6 +1,7 @@
 'use client';
 import PageHeader from '@repo/ui/page-header';
 import UserInformation from './user-information';
+import UserProfile from './user-profile';
 
 const AccountModule = () => {
   return (
@@ -14,6 +15,7 @@ const AccountModule = () => {
       />
 
       <UserInformation />
+      <UserProfile />
     </>
   );
 };

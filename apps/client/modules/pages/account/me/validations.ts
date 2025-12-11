@@ -8,6 +8,15 @@ export const userInformationSchema = z.object({
   landline_code: z.number().optional(),
 });
 
+export const userProfileSchema = z.object({
+  cover: z.any(),
+  portrait: z.any(),
+});
+
 export type userInformationSchemaFormValues = z.infer<
   typeof userInformationSchema
+>;
+
+export type userProfileSchemaSchemaFormValues = z.infer<
+  typeof userProfileSchema
 >;
