@@ -1,0 +1,18 @@
+.mrt-paper {
+  box-shadow: unset;
+  border: unset;
+
+  & .MuiTableContainer-root {
+    border: unset;
+  }
+}
+
+.mrt-footer {
+  border: unset;
+  box-shadow: unset;
+}
+
+.mrt-header {
+  border: unset;
+  box-shadow: unset;
+}

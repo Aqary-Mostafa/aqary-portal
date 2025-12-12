@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material';
+import { Box, Button, ButtonProps } from '@mui/material';
 import Link from 'next/link';
 import { CiImport } from 'react-icons/ci';
 import { LuPencilLine, LuTags } from 'react-icons/lu';
@@ -7,6 +7,8 @@ import { PiExportLight } from 'react-icons/pi';
 import './title-actions.scss';
 
 import { SectionLayoutProps } from '@/components/SectionLayout/SectionLayout';
+import { IoIosAdd } from 'react-icons/io';
+import { ReactNode } from 'react';
 
 interface TitleActionsProps {
   header: SectionLayoutProps['header'];
@@ -28,9 +30,12 @@ const TitleActions = ({ header }: TitleActionsProps) => {
             startIcon={btnAsset?.startIcon}
             onClick={x?.action}
             disabled={x?.disable}
+            sx={{ backgroundColor: '#f8f9fa', color: '#1a1a1a' }}
+            {...btnAsset?.props}
+            {...x?.props}
           >
             {x?.link && <Link href={x?.link} />}
-            {btnAsset?.label}
+            {x?.props?.children || btnAsset?.label}
           </Button>
         );
       })}
@@ -45,9 +50,17 @@ export enum TitleActionsEnums {
   tags = 'tags',
   export = 'export',
   edit = 'edit',
+  primary = 'primary',
 }
 
-const TITLE_ACTIONS = {
+type TitleActionConfig = {
+  label: string;
+  startIcon?: ReactNode;
+  onClick?: () => void;
+  props?: ButtonProps;
+};
+
+const TITLE_ACTIONS: Record<TitleActionsEnums, TitleActionConfig> = {
   [TitleActionsEnums.import]: {
     label: 'Import',
     startIcon: <CiImport />,
@@ -63,5 +76,15 @@ const TITLE_ACTIONS = {
   [TitleActionsEnums.edit]: {
     label: 'Edit',
     startIcon: <LuPencilLine />,
+  },
+  [TitleActionsEnums.primary]: {
+    label: 'Create',
+    startIcon: <IoIosAdd />,
+    props: {
+      sx: {
+        backgroundColor: 'primary.main',
+        color: '#fff',
+      },
+    },
   },
 };

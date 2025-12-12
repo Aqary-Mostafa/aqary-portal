@@ -1,7 +1,7 @@
 'use client';
 
 import ShortcutOutlinedIcon from '@mui/icons-material/ShortcutOutlined';
-import { Box, Typography } from '@mui/material';
+import { Box, ButtonProps, Typography } from '@mui/material';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -29,6 +29,7 @@ export interface SectionLayoutProps {
           link?: string;
           action?: () => void;
           disable?: boolean;
+          props?: ButtonProps;
         }
       | undefined
     )[];

@@ -11,7 +11,7 @@ import FieldThumbnail from '@/components/FieldThumbnail';
 
 import { isValidUrl } from '@/utils/helpers';
 import { htmlSanitize } from '@/utils/html-sanitize';
-import { useDefaultMRTOptions } from '@/utils/use-default-MRT-options';
+import { useDefaultMRTOptions } from '@/utils/MRT-configs';
 
 type CustomType =
   | 'chip'
@@ -95,7 +95,7 @@ const ViewDialog = ({ data }: { data?: ViewSections }) => {
     );
 
     const TableCustom = () => {
-      const defaultMRTOptions = useDefaultMRTOptions({});
+      const defaultMRTOptions = useDefaultMRTOptions();
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const columns: MRT_ColumnDef<any>[] = useMemo(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

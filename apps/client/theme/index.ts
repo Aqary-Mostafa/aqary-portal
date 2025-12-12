@@ -46,6 +46,8 @@ const baseTheme = createTheme({
           // minWidth: '200px',
           borderRadius: '12px',
           backgroundColor: '#F8F9FA',
+          border: '1px solid #E0E6ED',
+          color: '#7C8BA1',
 
           '& input[type="file"]': {
             color: '#6C6C6C',
