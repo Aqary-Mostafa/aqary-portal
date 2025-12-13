@@ -1,14 +1,20 @@
 import ColumnFilters from '@/components/column-filters';
+import { SectionLayout } from '@/components/SectionLayout/SectionLayout';
+import { TitleActionsEnums } from '@/components/SectionLayout/TitleActions';
 import { useDefaultMRTOptions } from '@/utils/MRT-configs';
 import {
   MaterialReactTable,
   MRT_ColumnDef,
   useMaterialReactTable,
 } from 'material-react-table';
-import { useMemo } from 'react';
+import { Dispatch, SetStateAction, useMemo } from 'react';
 import { PiExport } from 'react-icons/pi';
 
-const UsersTableView = () => {
+export interface UsersTableViewProps {
+  setCurrent: Dispatch<SetStateAction<string>>;
+}
+
+const UsersTableView = ({ setCurrent }: UsersTableViewProps) => {
   const columns = useMemo<MRT_ColumnDef<never>[]>(
     () => [
       {
@@ -45,33 +51,48 @@ const UsersTableView = () => {
   });
 
   return (
-    <>
-      <ColumnFilters
-        filters={[
+    <SectionLayout
+      header={{
+        title: 'Company Users',
+        actions: [
           {
-            key: 'search',
-            type: 'search',
-            placeholder: 'Search',
+            type: TitleActionsEnums.primary,
+            action: () => setCurrent('edit'),
+            props: {
+              children: 'Create User',
+            },
           },
-          {
-            key: 'role',
-            type: 'select',
-            label: 'Roles',
-            options: [],
-            value: '',
-          },
-        ]}
-        actions={[
-          {
-            key: 'export',
-            label: 'Export',
-            icon: <PiExport />,
-          },
-        ]}
-      />
+        ],
+      }}
+    >
+      <>
+        <ColumnFilters
+          filters={[
+            {
+              key: 'search',
+              type: 'search',
+              placeholder: 'Search',
+            },
+            {
+              key: 'role',
+              type: 'select',
+              label: 'Roles',
+              options: [],
+              value: '',
+            },
+          ]}
+          actions={[
+            {
+              key: 'export',
+              label: 'Export',
+              icon: <PiExport />,
+            },
+          ]}
+        />
 
-      <MaterialReactTable table={table} />
-    </>
+        <MaterialReactTable table={table} />
+      </>
+    </SectionLayout>
   );
 };
 

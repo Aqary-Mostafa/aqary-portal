@@ -358,25 +358,17 @@ const baseTheme = createTheme({
     },
     MuiTabs: {
       styleOverrides: {
-        root: {
-          border: '1px solid #6290CB',
-          borderRadius: '4px',
-          minHeight: 'unset',
+        indicator: {
+          height: '3px',
+          borderRadius: '2px 2px 0 0',
         },
       },
     },
     MuiTab: {
       styleOverrides: {
         root: {
-          color: '#6290CB',
+          color: '#7C8BA1',
           textTransform: 'capitalize',
-          minHeight: '38px',
-          height: '38px',
-
-          '&.Mui-selected': {
-            background: '#6290CB',
-            color: '#fff',
-          },
         },
       },
     },
