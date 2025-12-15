@@ -22,13 +22,13 @@ import { BiArea, BiBath } from 'react-icons/bi';
 
 type ListingDetailsProps = {
   data: {
-    imageUrl: string;
+    imageUrl?: string;
     title: string;
     verified?: boolean;
     price: number;
     refNumber: string;
-    location: string;
-    beds: number;
+    location?: string;
+    beds: string;
     baths: number;
     area: number;
   };
@@ -77,10 +77,12 @@ const ListingDetails = ({ data }: ListingDetailsProps) => {
           <CellWithCopy url={refNumber} />
         </MetaRow>
 
-        <MetaRow>
-          <SlLocationPin />
-          <Typography>{location}</Typography>
-        </MetaRow>
+        {location && (
+          <MetaRow>
+            <SlLocationPin />
+            <Typography>{location}</Typography>
+          </MetaRow>
+        )}
 
         <MetaRow className='facts'>
           <IconText>

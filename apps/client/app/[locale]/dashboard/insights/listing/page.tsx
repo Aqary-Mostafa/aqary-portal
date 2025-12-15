@@ -1,6 +1,6 @@
 import ListingInsightsContainer from '@/modules/pages/insights/listings';
 
-const ListingInsights = () => {
+const ListingInsights = async () => {
   return <ListingInsightsContainer />;
 };
 

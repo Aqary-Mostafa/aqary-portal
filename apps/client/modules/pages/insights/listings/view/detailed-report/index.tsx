@@ -20,7 +20,7 @@ const DetailedReportDrawer = () => {
           price: 900000,
           refNumber: 'AQR-123456',
           location: 'New York, USA',
-          beds: 3,
+          beds: '3',
           baths: 2,
           area: 1500,
         }}

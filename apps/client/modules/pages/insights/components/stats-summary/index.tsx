@@ -69,15 +69,17 @@ const StatsSummary = ({ data, actions }: StatsSummaryProps) => {
         </Row>
       ))}
 
-      <ActionButton
-        variant='outlined'
-        startIcon={<FiFileText />}
-        fullWidth
-        size='small'
-        onClick={onReportClick}
-      >
-        Detailed Report
-      </ActionButton>
+      {actions?.onReportClick && (
+        <ActionButton
+          variant='outlined'
+          startIcon={<FiFileText />}
+          fullWidth
+          size='small'
+          onClick={onReportClick}
+        >
+          Detailed Report
+        </ActionButton>
+      )}
     </CardRoot>
   );
 };

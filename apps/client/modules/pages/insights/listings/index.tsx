@@ -7,9 +7,10 @@ import PageHeader from '@repo/ui/page-header';
 import {
   MaterialReactTable,
   MRT_ColumnDef,
+  MRT_PaginationState,
   useMaterialReactTable,
 } from 'material-react-table';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { BiSortAlt2 } from 'react-icons/bi';
 import { PiExport } from 'react-icons/pi';
 import ListingDetails from '../components/listing-details';
@@ -17,93 +18,143 @@ import StatsSummary from '../components/stats-summary';
 import CompletionStatus from '../components/completion-status';
 import AuditDates from '../components/audit-dates';
 import { useDrawerRoot } from '../components/drawer-root';
-import DetailedReport from './view/detailed-report';
-import DetailedReportDrawer from './view/detailed-report';
+import useSWR from 'swr';
+import { insightsApi } from '../api/insights.api';
+import { PropertyInsightType } from '../types/insights';
 
 const ListingInsightsContainer = () => {
-  const { openDrawer, DrawerRoot, closeDrawer } = useDrawerRoot();
+  const { DrawerRoot } = useDrawerRoot();
+  const [pagination, setPagination] = useState<MRT_PaginationState>({
+    pageIndex: 0,
+    pageSize: 10,
+  });
 
-  const columns = useMemo<MRT_ColumnDef<never>[]>(
+  const columns = useMemo<MRT_ColumnDef<PropertyInsightType>[]>(
     () => [
       {
         accessorKey: 'Property Details',
         header: 'Property Details',
-        Cell: () => (
-          <ListingDetails
-            data={{
-              imageUrl:
-                'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-              title: 'Apartment',
-              verified: true,
-              price: 900000,
-              refNumber: 'AQR-123456',
-              location: 'New York, USA',
-              beds: 3,
-              baths: 2,
-              area: 1500,
-            }}
-          />
-        ),
+        Cell: ({ row }: { row: { original: PropertyInsightType } }) => {
+          const {
+            property_type: title,
+            price,
+            ref_no: ref,
+            bedrooms,
+            bathroom,
+            plot_area: plotArea,
+            state,
+            subcommunity,
+          } = row.original;
+
+          return (
+            <ListingDetails
+              data={{
+                imageUrl: undefined,
+                title: title,
+                verified: false,
+                price: price,
+                refNumber: ref,
+                location: [subcommunity?.label, state?.label].join(', '),
+                beds: bedrooms,
+                baths: bathroom,
+                area: plotArea,
+              }}
+            />
+          );
+        },
       },
       {
         accessorKey: 'Performance',
         header: 'Performance',
-        Cell: () => (
-          <StatsSummary
-            data={{
-              impressions: 6521,
-              clicks: 574,
-              leads: 283,
-            }}
-            actions={{
-              onReportClick: () =>
-                openDrawer({
-                  content: <DetailedReportDrawer />,
-                }),
-            }}
-          />
-        ),
+        Cell: ({ row }: { row: { original: PropertyInsightType } }) => {
+          const {
+            performance: { impressions, views, leads },
+          } = row.original;
+
+          return (
+            <StatsSummary
+              data={{
+                impressions: impressions,
+                clicks: views,
+                leads: leads,
+              }}
+              // actions={{
+              //   onReportClick: () =>
+              //     openDrawer({
+              //       content: <DetailedReportDrawer />,
+              //     }),
+              // }}
+            />
+          );
+        },
       },
       {
         accessorKey: 'Qty Score',
         header: 'Qty Score',
-        Cell: () => (
-          <CompletionStatus
-            data={{
-              items: [
-                { label: '7/8 Image' },
-                { label: 'Floor Plan Assigned' },
-                { label: '222\\444 Character' },
-                { label: 'Agent Profile' },
-              ],
-              completionPercentage: 60,
-            }}
-          />
-        ),
+        Cell: ({ row }: { row: { original: PropertyInsightType } }) => {
+          if (!row?.original?.percentage) return '_';
+
+          return (
+            <CompletionStatus
+              data={{
+                items: [
+                  { label: '7/8 Image' },
+                  { label: 'Floor Plan Assigned' },
+                  { label: '222\\444 Character' },
+                  { label: 'Agent Profile' },
+                ],
+                completionPercentage: 60,
+              }}
+            />
+          );
+        },
       },
       {
         accessorKey: 'Date & Time',
         header: 'Date & Time',
-        Cell: () => (
+        Cell: ({ row }: { row: { original: PropertyInsightType } }) => (
           <AuditDates
             data={{
-              createdAt: new Date('Sun Mar 10 2024 03:30:00 GMT-0400'),
-              updatedAt: new Date('Sun Mar 10 2024 03:30:00 GMT-0400'),
+              createdAt: row?.original?.created_at,
+              updatedAt: row?.original?.updated_at,
             }}
           />
         ),
       },
     ],
-    [openDrawer],
+    [],
   );
 
-  const data = useMemo<never[]>(() => [{}] as never[], []);
+  const { data, error, isLoading } = useSWR(
+    [
+      'property-insights',
+      {
+        pagination,
+      },
+    ],
+    async () =>
+      insightsApi.getPropertyInsights({
+        page: '1',
+        pageSize: '10',
+      }),
+    {
+      refreshInterval: 0,
+      revalidateOnFocus: false,
+    },
+  );
 
-  const defaultMRTOptions = useDefaultMRTOptions<never>();
+  const defaultMRTOptions = useDefaultMRTOptions<PropertyInsightType>();
   const table = useMaterialReactTable({
     ...defaultMRTOptions,
+    onPaginationChange: setPagination,
     columns: columns,
-    data: data,
+    data: data?.data || [],
+    rowCount: data?.Total ?? 0,
+    state: {
+      pagination,
+      isLoading,
+      showAlertBanner: error,
+    },
     muiTableContainerProps: {
       sx: {
         maxHeight: 'clamp(350px, calc(100vh - 404px), 9999px)',
