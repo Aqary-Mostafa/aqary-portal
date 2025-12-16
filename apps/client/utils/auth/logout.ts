@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 export const signOut = async () => {
   const aqryCookies = await cookies();
   aqryCookies.delete('aqaryUser');
-  redirect('/login');
+  redirect('/');
 };
 
 export const clearCookies = async () => {
@@ -16,4 +16,8 @@ export const clearCookies = async () => {
   } catch (error) {
     return false;
   }
+};
+
+export const handleLogout = async () => {
+  await signOut();
 };

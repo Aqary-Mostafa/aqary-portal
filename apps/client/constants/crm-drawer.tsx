@@ -1,26 +1,26 @@
-import { GoReport } from 'react-icons/go';
+import { MdOutlineInsights } from 'react-icons/md';
 import { TbGitBranch } from 'react-icons/tb';
 
 const mainMenu = {
   head: {
-    id: 0,
+    id: 1,
     label: 'Main Menu',
     icon: <TbGitBranch />,
     url: '/crm/lead_contact',
   },
   list: [
     {
-      id: 0,
-      label: 'Reports',
-      icon: <GoReport />,
-      url: '/crm/leads/reports',
+      id: 2,
+      label: 'Listing Insights',
+      icon: <MdOutlineInsights />,
+      url: '/dashboard/insights/listing',
     },
   ],
 };
 
 export const INITIAL_LIST = [
   {
-    id: 0,
+    id: 1,
     data: mainMenu,
   },
 ];

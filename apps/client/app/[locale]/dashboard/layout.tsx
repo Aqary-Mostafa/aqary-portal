@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import * as React from 'react';
-import DashboardLayouts from '@repo/ui/dashboard-layouts';
 
 import { SITE_CONFIG } from '@/constants';
+import DashboardLayouts from '@/components/dashboard-layouts';
 
 export const metadata: Metadata = {
   title: {
